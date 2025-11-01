@@ -1,0 +1,92 @@
+{
+  "nav": {
+    "home": "Beranda",
+    "about": "Tentang",
+    "project": "Proyek",
+    "skills": "Keahlian",
+    "contact": "Kontak"
+  },
+  "home": {
+    "greeting": "HALO",
+    "intro": "Saya Prayogo",
+    "role": "Fullstack Web Developer",
+    "card": {
+      "name": "Prayogo",
+      "title": "Fullstack Web Developer",
+      "handle": "yogamuz",
+      "status": "Online",
+      "contactText": "Hubungi Saya"
+    }
+  },
+  "about": {
+    "title": "Tentang Saya",
+    "description": "Saya adalah mahasiswa semester lima program studi Teknologi Informasi di Universitas Bina Sarana Informatika. Saat ini, saya sedang memperdalam pengetahuan tentang pengembangan web baik di sisi frontend maupun backend, dengan tujuan menjadi seorang Full Stack Web Developer. Meskipun saya mempelajari kedua bidang tersebut, saya lebih cenderung pada pengembangan backend karena saya menikmati bekerja dengan logika, struktur data, dan memahami bagaimana sistem beroperasi di balik layar. Saya memiliki passion yang kuat untuk belajar dan berkomitmen untuk terus meningkatkan kemampuan saya, terutama dalam beradaptasi dengan dunia teknologi yang bergerak cepat dan terus berkembang.",
+    "github": {
+      "title": "Kontribusi GitHub",
+      "subtitle": "Aktivitas coding saya selama setahun terakhir"
+    }
+  },
+  "project": {
+    "title": "Proyek",
+    "tooltip": {
+      "frontend": "Frontend",
+      "backend": "Backend"
+    },
+    "items": [
+      {
+        "title": "Mini E-commerce dengan Multiple Seller",
+        "description": "Platform e-commerce multi-vendor yang diinisiasi sendiri di mana beberapa penjual dapat mengelola toko, produk, dan pesanan mereka sendiri. Platform ini mencakup profil pengguna, dashboard penjual, dan sistem top-up dompet lokal yang ditangani oleh admin.",
+        "type": "Proyek Pribadi"
+      }
+    ]
+  },
+  "contact": {
+    "title": "Hubungi Saya",
+    "options": {
+      "email": "Email",
+      "whatsapp": "WhatsApp",
+      "maps": "Lokasi"
+    },
+    "description": "Jangan ragu untuk menghubungi saya jika Anda tertarik untuk berkolaborasi dalam pengembangan atau pembuatan website yang disesuaikan dengan kebutuhan dan visi Anda. Saya siap membantu Anda mengubah ide menjadi produk digital yang profesional, responsif, dan menarik secara visual yang akan membantu bisnis atau proyek Anda berkembang dan menonjol di dunia online.",
+    "email": {
+      "title": "Kirim email kepada saya",
+      "firstName": "Nama Depan",
+      "lastName": "Nama Belakang",
+      "emailLabel": "Email",
+      "message": "Pesan",
+      "placeholder": {
+        "firstName": "John",
+        "lastName": "Doe",
+        "email": "john@example.com",
+        "message": "Pesan Anda di sini..."
+      },
+      "hint": "Pastikan email yang Anda berikan valid agar saya dapat dengan mudah membalas pesan Anda.",
+      "button": "Kirim Pesan",
+      "sending": "Mengirim..."
+    },
+    "whatsapp": {
+      "title": "Chat di WhatsApp",
+      "name": "Nama Anda",
+      "message": "Pesan",
+      "placeholder": {
+        "name": "Nama Anda",
+        "message": "Ketik pesan Anda untuk WhatsApp..."
+      },
+      "button": "Buka WhatsApp",
+      "greeting": "Halo, nama saya"
+    },
+    "maps": {
+      "title": "Lokasi Saya",
+      "location": "Depok, Jawa Barat",
+      "description": "Saya berlokasi di Depok, Jawa Barat. Jangan ragu untuk menghubungi jika Anda berada di area ini!"
+    },
+    "toast": {
+      "loading": "Mengirim pesan...",
+      "success": "Pesan berhasil dikirim!",
+      "error": "Gagal mengirim pesan. Silakan coba lagi."
+    }
+  },
+  "footer": {
+    "madeWith": "Dibuat dengan"
+  }
+}

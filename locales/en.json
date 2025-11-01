@@ -1,0 +1,93 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "project": "Project",
+    "skills": "Skills",
+    "contact": "Contact"
+  },
+  "home": {
+    "greeting": "HELLO",
+    "intro": "I'm Prayogo",
+    "role": "Fullstack Web Developer",
+    "card": {
+      "name": "Prayogo",
+      "title": "Fullstack Web Developer",
+      "handle": "yogamuz",
+      "status": "Online",
+      "contactText": "Contact Me"
+    }
+  },
+  "about": {
+    "title": "About Me",
+    "description": "I am a fifth-semester student in the Information Technology program at Universitas Bina Sarana Informatika. Currently, I am deepening my knowledge of web development on both the frontend and backend sides, with the goal of becoming a Full Stack Web Developer. Although I study both areas, I am more inclined toward backend development because I enjoy working with logic, data structures, and understanding how systems operate behind the scenes. I have a strong passion for learning and am committed to continuously improving my skills, especially in adapting to the fast-paced and ever-evolving world of technology.",
+    "github": {
+      "title": "GitHub Contributions",
+      "subtitle": "My coding activity over the past year"
+    }
+  },
+  "project": {
+    "title": "Projects",
+    "tooltip": {
+      "frontend": "Frontend",
+      "backend": "Backend"
+    },
+    "items": [
+      {
+        "title": "Mini E-commerce with Multiple Sellers",
+        "description": "A self-initiated multi-vendor e-commerce platform where multiple sellers can manage their own stores, products, and orders. The platform includes user profiles, seller dashboards, and a local wallet top-up system handled by the admin.",
+        "type": "Personal Project"
+      }
+
+    ]
+  },
+  "contact": {
+    "title": "Get In Touch",
+    "options": {
+      "email": "Email",
+      "whatsapp": "WhatsApp",
+      "maps": "Maps"
+    },
+    "description": "Feel free to contact me if you're interested in collaborating on the development or creation of a website tailored to your needs and vision. I'm ready to help you turn your ideas into a professional, responsive, and visually appealing digital product that will help your business or project grow and stand out in the online world.",
+    "email": {
+      "title": "Send me an email",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "emailLabel": "Email",
+      "message": "Message",
+      "placeholder": {
+        "firstName": "John",
+        "lastName": "Doe",
+        "email": "john@example.com",
+        "message": "Your message here..."
+      },
+      "hint": "Please make sure the email you provide is valid so I can easily reply to your message.",
+      "button": "Send Message",
+      "sending": "Sending..."
+    },
+    "whatsapp": {
+      "title": "Chat on WhatsApp",
+      "name": "Your Name",
+      "message": "Message",
+      "placeholder": {
+        "name": "Your name",
+        "message": "Type your message for WhatsApp..."
+      },
+      "button": "Open WhatsApp",
+      "greeting": "Hello, my name is"
+    },
+    "maps": {
+      "title": "My Location",
+      "location": "Depok, West Java",
+      "description": "I'm located in Depok, West Java. Feel free to reach out if you're in the area!"
+    },
+    "toast": {
+      "loading": "Sending message...",
+      "success": "Message sent successfully!",
+      "error": "Failed to send message. Please try again."
+    }
+  },
+  "footer": {
+    "madeWith": "Made with"
+  }
+}
