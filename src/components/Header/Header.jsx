@@ -1,4 +1,3 @@
-// components/Header/Header.jsx
 import { useState, useEffect } from "react";
 import Navbar from "./Navbar";
 
@@ -19,14 +18,10 @@ function Header() {
   }, []);
 
   return (
-    <header
-      className={`w-full px-8 md:px-16 lg:px-24 py-8 md:py-10 lg:py-12 fixed translate-y-[-17px] left-0 z-50 transition-all duration-300 ${
-        isScrolled ? "backdrop-blur-md bg-black/30" : ""
-      }`}
-    >
+    <header className="w-full fixed top-0 left-0 z-50 transition-all duration-300">
       <Navbar />
     </header>
   );
 }
 
-export default Header;
+export default Header;  

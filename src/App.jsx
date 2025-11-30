@@ -2,12 +2,12 @@
 import { Toaster } from "react-hot-toast";
 
 import DarkVeil from "./components/DarkVeil";
+import FloatingLines from "@/components/FloatingLines";
 import Header from "@/components/Header/Header";
 import Home from "@/components/pages/Index";
 import About from "@/components/pages/About";
+import Skills from "@/components/Skills";
 import Project from "@/components/pages/Project";
-// HAPUS: import Skills from "@/components/pages/Skills";
-import Contact from "@/components/pages/Contact";
 import SplashCursor from "@/components/SplashCursor";
 import Footer from "@/components/Footer/Footer";
 
@@ -15,7 +15,17 @@ export default function App() {
   return (
     <div className="relative w-full min-h-screen overflow-x-hidden bg-black">
       <div className="fixed inset-0 z-0">
-        <DarkVeil />
+        <FloatingLines
+          enabledWaves={["top", "middle", "bottom"]}
+          // Array - specify line count per wave; Number - same count for all waves
+          lineCount={[2, 3, 5]}
+          // Array - specify line distance per wave; Number - same distance for all waves
+          lineDistance={[5]}
+          bendRadius={5.0}
+          bendStrength={-0.5}
+          interactive={true}
+          parallax={true}
+        />
       </div>
 
       <div className="relative z-10 w-full">
@@ -23,7 +33,7 @@ export default function App() {
 
         <main className="w-full pt-24 md:pt-28 lg:pt-32">
           <SplashCursor />
-          
+
           <section id="home">
             <Home />
           </section>
@@ -32,20 +42,17 @@ export default function App() {
             <About />
           </section>
 
+          <section id="skills">
+            <Skills />
+          </section>
+
           <section id="project">
             <Project />
           </section>
 
-          {/* HAPUS section skills ini */}
-          {/* <section id="skills">
-            <Skills />
-          </section> */}
-
           <section id="contact">
-            <Contact />
+            <Footer />
           </section>
-          
-          <Footer />
         </main>
       </div>
 

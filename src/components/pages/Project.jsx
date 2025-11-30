@@ -1,5 +1,6 @@
 import { Folder, Github, ExternalLink } from "lucide-react";
 import { useState } from "react";
+import PixelTransition from "@/components/PixelTransition";
 import { useTranslation } from "react-i18next";
 
 // Tooltip Component
@@ -15,16 +16,15 @@ function Tooltip({ text, children }) {
         {children}
       </div>
       {isVisible && (
-        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 bg-gray-900 text-white text-xs rounded whitespace-nowrap z-10">
+        <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 px-2 py-1 bg-gray-900 text-white text-xs rounded whitespace-nowrap z-10">
           {text}
-          <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-gray-900"></div>
+          <div className="absolute bottom-full left-1/2 -translate-x-1/2 -mb-1 border-4 border-transparent border-b-gray-900"></div>
         </div>
       )}
     </div>
   );
 }
 
-// Project Card Component
 function ProjectCard({
   title,
   description,
@@ -33,96 +33,184 @@ function ProjectCard({
   githubBackendUrl,
   liveUrl,
   type,
+  previewImage,
+  hoverImage,
 }) {
   const { t } = useTranslation();
   const hasMultipleRepos = githubUrl && githubBackendUrl;
 
   return (
-    <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-6 shadow-md hover:shadow-2xl hover:shadow-gray-700/50 hover:-translate-y-2 hover:scale-105 transition-all duration-300 h-full flex flex-col">
-      {/* Header: Folder Icon & Action Icons */}
-      <div className="flex justify-between items-start mb-4">
-        <Folder className="text-gray-300 w-10 h-10 stroke-[1.5]" />
-        <div className="flex gap-3 text-gray-400">
-          {/* GitHub Links */}
-          {hasMultipleRepos ? (
-            <>
-              {githubUrl && (
-                <Tooltip text={t("project.tooltip.frontend")}>
+    <div className="relative bg-gradient-to-b from-black via-purple-950/10 to-black rounded-xl p-3 sm:p-4 shadow-md hover:shadow-2xl hover:shadow-purple-700/30 transition-all duration-300 h-full overflow-hidden border border-gray-800/50">
+      {/* Grid 2 Kolom: Info Kiri, PixelTransition Kanan */}
+      <div className="grid grid-cols-[1fr_auto] gap-3 sm:gap-4 h-full">
+        {/* KOLOM KIRI - Info Project */}
+        <div className="flex flex-col min-w-0">
+          {/* Header: Folder Icon & Action Icons */}
+          <div className="flex justify-between items-start mb-2 sm:mb-3">
+            <Folder className="text-gray-300 w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 stroke-[1.5] flex-shrink-0" />
+            <div className="flex gap-1.5 sm:gap-2 text-gray-400 flex-shrink-0">
+              {/* GitHub Links */}
+              {hasMultipleRepos ? (
+                <>
+                  {githubUrl && (
+                    <Tooltip text={t("project.tooltip.frontend")}>
+                      <a
+                        href={githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:text-white transition-colors duration-200"
+                      >
+                        <Github className="w-3.5 h-3.5 sm:w-4 sm:h-4 cursor-pointer" />
+                      </a>
+                    </Tooltip>
+                  )}
+                  {githubBackendUrl && (
+                    <Tooltip text={t("project.tooltip.backend")}>
+                      <a
+                        href={githubBackendUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:text-cyan-400 transition-colors duration-200"
+                      >
+                        <Github className="w-3.5 h-3.5 sm:w-4 sm:h-4 cursor-pointer" />
+                      </a>
+                    </Tooltip>
+                  )}
+                </>
+              ) : (
+                githubUrl && (
                   <a
                     href={githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-white transition-colors duration-200"
+                    className="hover:text-cyan-400 transition-colors duration-200"
                   >
-                    <Github className="w-5 h-5 cursor-pointer" />
+                    <Github className="w-3.5 h-3.5 sm:w-4 sm:h-4 cursor-pointer" />
                   </a>
-                </Tooltip>
+                )
               )}
-              {githubBackendUrl && (
-                <Tooltip text={t("project.tooltip.backend")}>
-                  <a
-                    href={githubBackendUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-[#64FFDA] transition-colors duration-200"
-                  >
-                    <Github className="w-5 h-5 cursor-pointer" />
-                  </a>
-                </Tooltip>
+
+              {/* Live URL */}
+              {liveUrl && (
+                <a
+                  href={liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-cyan-400 transition-colors duration-200"
+                >
+                  <ExternalLink className="w-3.5 h-3.5 sm:w-4 sm:h-4 cursor-pointer" />
+                </a>
               )}
-            </>
-          ) : (
-            githubUrl && (
-              <a
-                href={githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-[#64FFDA] transition-colors duration-200"
-              >
-                <Github className="w-5 h-5 cursor-pointer" />
-              </a>
-            )
+            </div>
+          </div>
+
+          {/* Type Badge */}
+          {type && (
+            <div className="mb-1.5 sm:mb-2">
+              <span className="text-[10px] sm:text-xs font-mono text-gray-300 bg-purple-900/30 px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-full border border-purple-700/50">
+                {type}
+              </span>
+            </div>
           )}
 
-          {/* Live URL */}
-          {liveUrl && (
+          {/* Project Title */}
+          <h3 className="text-sm sm:text-base md:text-lg font-bold text-gray-100 mb-1.5 sm:mb-2 line-clamp-2">
+            {title}
+          </h3>
+
+          {/* Project Description */}
+          <p
+            className="text-gray-400 text-[11px] sm:text-xs leading-relaxed 
+text-justify flex-grow mb-2 sm:mb-3 
+line-clamp-3 sm:line-clamp-4"
+          >
+            {description}
+          </p>
+
+          {/* Technologies Used */}
+          <div className="flex flex-wrap gap-1.5 sm:gap-2 text-[10px] sm:text-xs text-gray-500 font-mono">
+            {technologies.map((tech, index) => (
+              <span
+                key={index}
+                className="hover:text-cyan-400 transition-colors duration-200"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* KOLOM KANAN - PixelTransition Preview (SQUARE/KOTAK) */}
+        <div className="flex items-center justify-center flex-shrink-0">
+          {liveUrl && previewImage && (
             <a
               href={liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-[#64FFDA] transition-colors duration-200"
+              className="block w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48"
             >
-              <ExternalLink className="w-5 h-5 cursor-pointer" />
+              <PixelTransition
+                firstContent={
+                  <img
+                    src={previewImage}
+                    alt={`${title} preview`}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      borderRadius: "8px",
+                    }}
+                  />
+                }
+                secondContent={
+                  hoverImage ? (
+                    // Jika ada hoverImage, tampilkan gambar
+                    <img
+                      src={hoverImage}
+                      alt={`${title} hover`}
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                        borderRadius: "8px",
+                      }}
+                    />
+                  ) : (
+                    // Jika tidak ada hoverImage, tampilkan teks seperti sekarang
+                    <div
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        display: "grid",
+                        placeItems: "center",
+                        backgroundColor: "#22d3ee",
+                        borderRadius: "8px",
+                      }}
+                    >
+                      <p
+                        style={{
+                          fontWeight: 900,
+                          fontSize: "0.65rem",
+                          color: "#000",
+                          textAlign: "center",
+                          padding: "0 8px",
+                        }}
+                        className="sm:text-xs"
+                      >
+                        Go to Projects
+                      </p>
+                    </div>
+                  )
+                }
+                gridSize={6}
+                pixelColor="#ffffff"
+                once={false}
+                animationStepDuration={0.2}
+                style={{ width: "100%", height: "100%", borderRadius: "8px" }}
+              />
             </a>
           )}
         </div>
-      </div>
-      {/* Type Badge */}
-      {type && (
-        <div className="mb-3">
-          <span className="text-xs font-mono text-gray-300 bg-gray-700/50 px-3 py-1 rounded-full">
-            {type}
-          </span>
-        </div>
-      )}
-      {/* Project Title */}
-      <h3 className="text-xl font-bold text-gray-100 mb-3">{title}</h3>
-
-      {/* Project Description */}
-      <p className="text-gray-300 text-sm mb-6 leading-relaxed flex-grow">
-        {description}
-      </p>
-
-      {/* Technologies Used */}
-      <div className="flex flex-wrap gap-3 text-xs text-gray-400 font-mono">
-        {technologies.map((tech, index) => (
-          <span
-            key={index}
-            className="hover:text-gray-200 transition-colors duration-200"
-          >
-            {tech}
-          </span>
-        ))}
       </div>
     </div>
   );
@@ -134,28 +222,65 @@ export default function Project() {
 
   const projects = [
     {
-      title: t("project.items.0.title"),
-      description: t("project.items.0.description"),
+      title: t("project.items.0.title") || "ShopCart E-commerce",
+      description:
+        t("project.items.0.description") ||
+        "A full-stack e-commerce application with shopping cart functionality, product management, and secure checkout process.",
       technologies: ["Vue JS", "Tailwind CSS", "Node JS", "MongoDB"],
       githubUrl: "https://github.com/yogamuz/shopcart",
       githubBackendUrl: "https://github.com/yogamuz/shopserver",
       liveUrl: "https://shopcarts1.netlify.app",
-      type: t("project.items.0.type"),
+      type: t("project.items.0.type") || "Full Stack",
+      previewImage: "https://res.cloudinary.com/dzfqsajp3/image/upload/v1764504309/banner-shopcart-laptop_epqkna.jpg",
+      hoverImage: "https://res.cloudinary.com/dzfqsajp3/image/upload/v1764504382/banner-shopcart-mobile_jze1qq.jpg",
+    },
+    {
+      title: "Portfolio Website",
+      description:
+        "Personal portfolio website showcasing projects and skills with modern design and smooth animations.",
+      technologies: ["React", "Tailwind CSS", "Framer Motion"],
+      githubUrl: "https://github.com/yogamuz/portfolio",
+      liveUrl: "https://yogamuz.netlify.app",
+      type: "Frontend",
+      previewImage:
+        "https://res.cloudinary.com/dzfqsajp3/image/upload/v1761721103/IMG_4329_rvnhp9.jpg",
+    },
+    {
+      title: "Task Manager API",
+      description:
+        "RESTful API for task management with authentication, CRUD operations, and database integration.",
+      technologies: ["Node JS", "Express", "MongoDB", "JWT"],
+      githubUrl: "https://github.com/yogamuz/task-api",
+      liveUrl: "https://taskmanagerapi.herokuapp.com",
+      type: "Backend",
+      previewImage:
+        "https://res.cloudinary.com/dzfqsajp3/image/upload/v1761721103/IMG_4329_rvnhp9.jpg",
+    },
+    {
+      title: "Weather App",
+      description:
+        "Real-time weather application with location search and 7-day forecast using OpenWeather API.",
+      technologies: ["React", "Tailwind CSS", "API Integration"],
+      githubUrl: "https://github.com/yogamuz/weather-app",
+      liveUrl: "https://weatherapp-demo.netlify.app",
+      type: "Frontend",
+      previewImage:
+        "https://res.cloudinary.com/dzfqsajp3/image/upload/v1761721103/IMG_4329_rvnhp9.jpg",
     },
   ];
 
   return (
-    <div className="w-full px-6 sm:px-8 py-16 md:py-24 bg-gradient-to-brn">
+    <div className="w-full px-4 sm:px-6 md:px-8 py-12 sm:py-16 md:py-24">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-main mb-4 text-center">
+        <div className="mb-8 sm:mb-10 md:mb-12">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-main mb-4 text-center">
             {t("project.title")}
           </h2>
         </div>
 
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Projects Grid - RESPONSIVE */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 md:gap-6">
           {projects.map((project, index) => (
             <ProjectCard
               key={index}
@@ -166,6 +291,8 @@ export default function Project() {
               githubBackendUrl={project.githubBackendUrl}
               liveUrl={project.liveUrl}
               type={project.type}
+              previewImage={project.previewImage}
+              hoverImage={project.hoverImage}
             />
           ))}
         </div>

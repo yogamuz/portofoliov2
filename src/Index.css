@@ -1,11 +1,39 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap");
 
 @theme {
-  --color-main: #e5e7eb; /* sama dengan text-gray-200 */
+  --color-main: #e5e7eb;
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   color: var(--color-main);
+}
+
+
+.staggered-menu-wrapper:not([data-open="true"]) {
+  pointer-events: none !important;
+}
+
+/* CRITICAL: Hanya toggle button yang clickable saat menu tertutup */
+.staggered-menu-wrapper:not([data-open="true"]) .sm-toggle,
+.staggered-menu-wrapper:not([data-open="true"]) .staggered-menu-header {
+  pointer-events: auto !important;
+}
+
+/* Saat menu terbuka, semua bisa diklik */
+.staggered-menu-wrapper[data-open="true"] {
+  pointer-events: auto !important;
+}
+
+/* Pastikan sm-scope tidak block element lain saat tertutup */
+.sm-scope:has(.staggered-menu-wrapper:not([data-open="true"])) {
+  pointer-events: none !important;
+}
+
+.sm-scope:has(.staggered-menu-wrapper:not([data-open="true"])) .staggered-menu-header {
+  pointer-events: auto !important;
 }

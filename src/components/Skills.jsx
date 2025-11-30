@@ -136,7 +136,7 @@ function createSkillsEdges(skillsCount) {
     source: `skill-${index}`,
     target: "tech-stack",
     animated: true,
-    style: { stroke: "#61dafb", strokeWidth: 4 },
+    style: { stroke: "#8a7fff", strokeWidth:4 },
   }));
 }
 
@@ -147,7 +147,7 @@ function createToolsEdges(toolsCount) {
     source: "tech-stack",
     target: `tool-${index}`,
     animated: true,
-    style: { stroke: "#61dafb", strokeWidth: 4 },
+    style: { stroke: "#8a7fff", strokeWidth: 4 },
   }));
 }
 
@@ -392,7 +392,6 @@ export default function Skills({ showHeader = true, className = "" }) {
       {showHeader && (
         <div className="w-full mb-8 md:mb-12">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white text-center">
-            Skills
           </h2>
         </div>
       )}
@@ -443,23 +442,7 @@ export default function Skills({ showHeader = true, className = "" }) {
         </ReactFlow>
       </div>
 
-      {/* Bottom Decorative Element */}
-      <div className="mt-12 flex justify-center">
-        <div className="flex gap-2">
-          {[...Array(3)].map((_, i) => (
-            <div
-              key={i}
-              className={`w-2 h-2 rounded-full bg-white/30 ${
-                isVisible ? "animate-pulse" : ""
-              }`}
-              style={{
-                animationDelay: `${i * 0.3}s`,
-                animationDuration: "2s",
-              }}
-            ></div>
-          ))}
-        </div>
-      </div>
+
     </div>
   );
 }
