@@ -274,7 +274,7 @@ function createMobileSkillsEdges(skillsCount) {
     source: `mobile-skill-${index}`,
     target: "mobile-stack",
     animated: true,
-    style: { stroke: "#61dafb", strokeWidth: 2 },
+    style: { stroke: "#8a7fff", strokeWidth: 2 },
     type: "smoothstep",
   }));
 }
@@ -286,7 +286,7 @@ function createMobileToolsEdges(toolsCount) {
     source: "mobile-stack",
     target: `mobile-tool-${index}`,
     animated: true,
-    style: { stroke: "#61dafb", strokeWidth: 2 },
+    style: { stroke: "#8a7fff", strokeWidth: 2 },
     type: "smoothstep",
   }));
 }

@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { ID } from "country-flag-icons/react/3x2";
 import { GB } from "country-flag-icons/react/3x2";
 import StaggeredMenu from "../StaggeredMenu";
+import Magnet from "../Magnet";
 
 function Navbar() {
   const [showLangMenu, setShowLangMenu] = useState(false);
@@ -79,36 +80,26 @@ function Navbar() {
 
   return (
     <nav className="w-full flex items-center justify-end px-8 md:px-16 lg:px-24 py-6 relative z-50">
-      {/* Language Switcher - Z-INDEX LEBIH TINGGI */}
-      <div className="relative mr-4 z-[60]">
-        <button
-          onClick={() => setShowLangMenu(!showLangMenu)}
-          className="flex items-center justify-center w-12 h-12 bg-white/10 backdrop-blur-md rounded-full shadow-xl border border-white/20 hover:bg-white/20 transition-colors duration-200 relative z-[60]"
+      {/* CV Button with Magnet Effect - Left Section */}
+      <div className="fixed top-6 left-6 z-[100]">
+        <Magnet
+          padding={80}
+          magnetStrength={3}
+          activeTransition="transform 0.2s ease-out"
+          inactiveTransition="transform 0.4s ease-in-out"
+          wrapperClassName="pointer-events-auto"
         >
-          {currentLang && <currentLang.Flag className="w-6 h-6 rounded" />}
-        </button>
-
-        {showLangMenu && (
-          <div className="absolute top-full mt-2 right-0 bg-white/10 backdrop-blur-md rounded-xl shadow-2xl border border-white/20 overflow-hidden z-[70]">
-            {languages.map((lang) => (
-              <button
-                key={lang.code}
-                onClick={() => {
-                  i18n.changeLanguage(lang.code);
-                  setShowLangMenu(false);
-                }}
-                className={`w-full flex items-center gap-3 px-5 py-3 hover:bg-white/20 transition-colors ${
-                  i18n.language === lang.code ? "bg-white/30" : ""
-                }`}
-              >
-                <lang.Flag className="w-6 h-6 rounded" />
-                <span className="text-sm font-semibold text-white whitespace-nowrap">
-                  {lang.label}
-                </span>
-              </button>
-            ))}
-          </div>
-        )}
+          <a
+            href="/Prayogo_CV.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block px-8 py-2.5 text-white border border-cyan-400 rounded font-medium text-sm tracking-wider hover:bg-cyan-400/10 hover:border-cyan-300 transition-all duration-300 cursor-pointer select-none"
+            aria-label="Download CV"
+            style={{ pointerEvents: "auto" }}
+          >
+            CV
+          </a>
+        </Magnet>
       </div>
 
       {/* StaggeredMenu: standalone di pojok kanan atas */}

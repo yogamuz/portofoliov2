@@ -5,7 +5,25 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap");
 
 @theme {
-  --color-main: #e5e7eb;
+  --color-main: #cbd5e1; /* slate-300 */
+
+}
+
+/* FIX: Prevent white flash + consistent dark background */
+html,
+body,
+#root {
+  background: #0a0e1a ;
+  margin: 0;
+  padding: 0;
+  transition: background 1.5s ease-out;
+}
+
+/* Keep dark background after load */
+html.loaded,
+body.loaded,
+#root.loaded {
+  background: #000000;
 }
 
 body {

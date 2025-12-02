@@ -235,38 +235,19 @@ export default function Project() {
       hoverImage: "https://res.cloudinary.com/dzfqsajp3/image/upload/v1764504382/banner-shopcart-mobile_jze1qq.jpg",
     },
     {
-      title: "Portfolio Website",
+      title: "Inventory Management System",
       description:
-        "Personal portfolio website showcasing projects and skills with modern design and smooth animations.",
-      technologies: ["React", "Tailwind CSS", "Framer Motion"],
-      githubUrl: "https://github.com/yogamuz/portfolio",
-      liveUrl: "https://yogamuz.netlify.app",
-      type: "Frontend",
+        "A simple yet functional inventory management system with product CRUD, stock tracking, daily sales overview, and Excel export for 7–30 day sales reports.",
+      technologies: ["React JS", "Tailwind CSS", "Node JS", "MongoDB"],
+      githubUrl: "https://github.com/yogamuz/inventory-pos",
+      githubBackendUrl: "https://github.com/yogamuz/inventory-pos-server",
+      liveUrl: "https://bocimanager.netlify.app",
+      type: "Campus Project",
       previewImage:
-        "https://res.cloudinary.com/dzfqsajp3/image/upload/v1761721103/IMG_4329_rvnhp9.jpg",
-    },
-    {
-      title: "Task Manager API",
-      description:
-        "RESTful API for task management with authentication, CRUD operations, and database integration.",
-      technologies: ["Node JS", "Express", "MongoDB", "JWT"],
-      githubUrl: "https://github.com/yogamuz/task-api",
-      liveUrl: "https://taskmanagerapi.herokuapp.com",
-      type: "Backend",
-      previewImage:
-        "https://res.cloudinary.com/dzfqsajp3/image/upload/v1761721103/IMG_4329_rvnhp9.jpg",
-    },
-    {
-      title: "Weather App",
-      description:
-        "Real-time weather application with location search and 7-day forecast using OpenWeather API.",
-      technologies: ["React", "Tailwind CSS", "API Integration"],
-      githubUrl: "https://github.com/yogamuz/weather-app",
-      liveUrl: "https://weatherapp-demo.netlify.app",
-      type: "Frontend",
-      previewImage:
-        "https://res.cloudinary.com/dzfqsajp3/image/upload/v1761721103/IMG_4329_rvnhp9.jpg",
-    },
+        "https://res.cloudinary.com/dzfqsajp3/image/upload/v1764582853/laptop-boci_ldshpo.jpg",
+      hoverImage:
+        "https://res.cloudinary.com/dzfqsajp3/image/upload/v1764582853/mobile_boci_ycqpth.jpg",
+    }
   ];
 
   return (
