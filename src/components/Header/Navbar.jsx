@@ -93,7 +93,7 @@ function Navbar() {
             href="/Prayogo_CV.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block px-8 py-2.5 text-white border border-cyan-400 rounded font-medium text-sm tracking-wider hover:bg-cyan-400/10 hover:border-cyan-300 transition-all duration-300 cursor-pointer select-none"
+            className="inline-block px-8 py-2.5 text-white border border-cyan-400 rounded font-medium text-sm tracking-wider hover:bg-cyan-400/20 hover:border-cyan-300 transition-all duration-300 cursor-pointer select-none"
             aria-label="Download CV"
             style={{ pointerEvents: "auto" }}
           >

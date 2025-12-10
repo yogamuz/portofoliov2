@@ -1,10 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import {
-  Accordion,
-  AccordionItem,
-  AccordionTrigger,
-  AccordionContent,
-} from "@/components/Accordion";
+import Magnet from "@/components/Magnet";
 
 export default function Contact() {
   const [isVisible, setIsVisible] = useState(false);
@@ -34,10 +29,35 @@ export default function Contact() {
     };
   }, []);
 
+  const emailSubject = "Hello from your Portfolio Website";
+
+  const handleSayHi = () => {
+    // Detect if mobile device
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    
+    if (isMobile) {
+      // Try to open Gmail app first (will fallback to web if app not installed)
+      const gmailAppLink = `googlegmail://co?to=yogamuz13@gmail.com&subject=${encodeURIComponent(emailSubject)}`;
+      const gmailWebLink = `https://mail.google.com/mail/?view=cm&to=yogamuz13@gmail.com&su=${encodeURIComponent(emailSubject)}`;
+      
+      // Try app link first
+      window.location.href = gmailAppLink;
+      
+      // Fallback to web if app doesn't open within 1 second
+      setTimeout(() => {
+        window.open(gmailWebLink, '_blank');
+      }, 1000);
+    } else {
+      // Desktop: always open Gmail web
+      const gmailWebLink = `https://mail.google.com/mail/?view=cm&to=yogamuz13@gmail.com&su=${encodeURIComponent(emailSubject)}`;
+      window.open(gmailWebLink, '_blank');
+    }
+  };
+
   return (
     <div
       ref={sectionRef}
-      className="w-full px-4 sm:px-6 md:px-8 py-12 sm:py-16 md:py-24 "
+      className="w-full px-4 sm:px-6 md:px-8 py-12 sm:py-16 md:py-24"
     >
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
@@ -50,53 +70,20 @@ export default function Contact() {
           </p>
         </div>
 
-        {/* Accordion Section */}
+        {/* Contact Button with Magnet Effect */}
         <div
-          className={`max-w-3xl mx-auto transition-opacity duration-700 ${
+          className={`flex justify-center transition-opacity duration-700 ${
             isVisible ? "opacity-100" : "opacity-0"
           }`}
         >
-          <Accordion type="single" collapsible>
-            <AccordionItem value="item-1">
-              <AccordionTrigger>How can I contact you?</AccordionTrigger>
-              <AccordionContent >
-                You can reach me through email at <a href="mailto:yogamuz13@gmail.com">yogamuz13@gmail.com</a> or connect
-                with me on LinkedIn{" "}
-                <a
-                  href="https://www.linkedin.com/in/yourprofile"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-500 underline"
-                >
-                  here
-                </a>
-                . I'm always open to discussing new projects, creative ideas, or
-                opportunities to be part of your vision.
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="item-2">
-              <AccordionTrigger>What services do you offer?</AccordionTrigger>
-              <AccordionContent>
-                I specialize in full-stack web development, including frontend
-                development with React and Vue.js, backend development with
-                Node.js, and database management with MongoDB. I also offer
-                consultation for web application architecture and UI/UX design.
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="item-3">
-              <AccordionTrigger>
-                What is your typical response time?
-              </AccordionTrigger>
-              <AccordionContent>
-                I typically respond to all inquiries within 24-48 hours during
-                business days. For urgent matters, please mention it in your
-                message subject line, and I'll do my best to get back to you as
-                soon as possible.
-              </AccordionContent>
-            </AccordionItem>
-          </Accordion>
+          <Magnet padding={120} magnetStrength={2.5}>
+            <button
+              onClick={handleSayHi}
+              className="px-8 py-4 text-white border border-cyan-400 rounded-lg font-semibold text-lg tracking-wider hover:bg-cyan-400/20 hover:border-cyan-300 transition-all duration-300 cursor-pointer select-none"
+            >
+              Say Hi
+            </button>
+          </Magnet>
         </div>
       </div>
     </div>

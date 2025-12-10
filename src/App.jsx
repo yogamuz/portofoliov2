@@ -11,6 +11,7 @@ import SplashCursor from "@/components/SplashCursor";
 import Contact from "@/components/pages/Contact";
 import Footer from "@/components/Footer/Footer";
 
+
 export default function App() {
   const [isLoaded, setIsLoaded] = useState(false);
 
