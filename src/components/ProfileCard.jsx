@@ -30,7 +30,7 @@ const ProfileCardComponent = ({
   miniAvatarUrl,
   name = 'Javi A. Torres',
   title = 'Software Engineer',
-  handle = 'javicodes',
+  handle = 'yogamuz',
   status = 'Online',
   contactText = 'Contact',
   showUserInfo = true,
