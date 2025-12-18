@@ -73,9 +73,9 @@ function Navbar() {
   ];
 
   const socialItems = [
-    { label: "GitHub", link: "https://github.com/yourusername" },
-    { label: "LinkedIn", link: "https://linkedin.com/in/yourusername" },
-    { label: "Instagram", link: "https://instagram.com/yourusername" },
+    { label: "GitHub", link: "https://github.com/yogamuz" },
+    { label: "LinkedIn", link: "https://linkedin.com/in/prayogo-" },
+    { label: "Instagram", link: "https://instagram.com/yogamuz" },
   ];
 
   return (

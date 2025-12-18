@@ -1,10 +1,7 @@
 import React from "react";
-import { useTranslation } from "react-i18next";
 import { FaLinkedin, FaGithub, FaTiktok, FaInstagram } from "react-icons/fa";
 
 export default function Footer() {
-  const { t } = useTranslation();
-
   const socialLinks = [
     {
       icon: FaGithub,
@@ -15,21 +12,21 @@ export default function Footer() {
     },
     {
       icon: FaLinkedin,
-      href: "https://linkedin.com/in/your-profile",
+      href: "https://linkedin.com/in/prayogo-",
       hoverColor: "hover:text-[#0077B5]",
       defaultColor: "text-[#0077B5]",
       label: "LinkedIn",
     },
     {
       icon: FaTiktok,
-      href: "https://tiktok.com/@your-username",
+      href: "https://tiktok.com/yogamuz",
       hoverColor: "hover:text-[#EE1D52]",
       defaultColor: "text-[#EE1D52]",
       label: "TikTok",
     },
     {
       icon: FaInstagram,
-      href: "https://instagram.com/your-username",
+      href: "https://instagram.com/yogamuz",
       hoverColor: "hover:text-[#E4405F]",
       defaultColor: "text-[#E4405F]",
       label: "Instagram",
@@ -62,13 +59,30 @@ export default function Footer() {
         {/* Email Link */}
 
         <a
-          href="mailto:yogamuz13@gmail.com"
+          href="https://mail.google.com/mail/?view=cm&fs=1&to=prayogo.dev@gmail.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={(e) => {
+            const isMobile =
+              /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+                navigator.userAgent
+              );
+            if (isMobile) {
+              e.preventDefault();
+              const gmailAppLink = `googlegmail://co?to=prayogo.dev@gmail.com`;
+              const gmailWebLink = `https://mail.google.com/mail/?view=cm&to=prayogo.dev@gmail.com`;
+              window.location.href = gmailAppLink;
+              setTimeout(() => {
+                window.open(gmailWebLink, "_blank");
+              }, 1000);
+            }
+          }}
           className="text-gray-400 hover:text-cyan-400 hover:-translate-y-1 transition-all duration-300 writing-mode-vertical"
           style={{ writingMode: "vertical-rl" }}
           aria-label="Email"
         >
           <span className="text-sm tracking-widest font-light">
-            yogamuz13@gmail.com
+            prayogo.dev@gmail.com
           </span>
         </a>
 

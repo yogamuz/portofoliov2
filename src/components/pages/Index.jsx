@@ -44,7 +44,7 @@ export default function Home() {
             title="Fullstack Web Developer"
             status="Available"
             contactText="Contact"
-            showUserInfo={false}
+            showUserInfo={true}
             enableTilt={true}
             enableMobileTilt={false}
             behindGlowEnabled={true}

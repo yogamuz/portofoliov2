@@ -12,6 +12,8 @@ import {
   SiPostman,
   SiClaude,
   SiMysql,
+  SiPostgresql,
+  SiGit
 } from "react-icons/si";
 import { ReactFlow, Background } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
@@ -346,13 +348,15 @@ export default function Skills({ showHeader = true, className = "" }) {
     },
     { icon: FaLaravel, name: "Laravel", hoverColor: "hover:text-[#ff2d20]" },
     { icon: SiMongodb, name: "MongoDB", hoverColor: "hover:text-[#47a248]" },
-    { icon: SiMysql, mobileName: "MySQL", hoverColor: "hover:text-[#4479a1]" },
+    { icon: SiPostgresql, name: "PostgreSQL", mobileName: "PostgreSQL", hoverColor: "hover:text-[#4479a1]" },
   ];
 
   const tools = [
     { icon: FaGithub, name: "GitHub", hoverColor: "hover:text-[#24292E]" },
+    { icon: SiGit, name: "Git", hoverColor: "hover:text-[#f05032]" },
     { icon: SiPostman, name: "Postman", hoverColor: "hover:text-[#ff6c37]" },
     { icon: SiClaude, name: "Claude", hoverColor: "hover:text-[#d97757]" },
+
     {
       iconUrl:
         "https://registry.npmmirror.com/@lobehub/icons-static-png/1.74.0/files/dark/openai.png",

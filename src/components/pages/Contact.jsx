@@ -29,30 +29,28 @@ export default function Contact() {
     };
   }, []);
 
-  const emailSubject = "Hello from your Portfolio Website";
-
-  const handleSayHi = () => {
-    // Detect if mobile device
-    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+const handleSayHi = () => {
+  // Detect if mobile device
+  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  
+  if (isMobile) {
+    // Try to open Gmail app first (will fallback to web if app not installed)
+    const gmailAppLink = `googlegmail://co?to=prayogo.dev@gmail.com`;
+    const gmailWebLink = `https://mail.google.com/mail/?view=cm&to=prayogo.dev@gmail.com`;
     
-    if (isMobile) {
-      // Try to open Gmail app first (will fallback to web if app not installed)
-      const gmailAppLink = `googlegmail://co?to=yogamuz13@gmail.com&subject=${encodeURIComponent(emailSubject)}`;
-      const gmailWebLink = `https://mail.google.com/mail/?view=cm&to=yogamuz13@gmail.com&su=${encodeURIComponent(emailSubject)}`;
-      
-      // Try app link first
-      window.location.href = gmailAppLink;
-      
-      // Fallback to web if app doesn't open within 1 second
-      setTimeout(() => {
-        window.open(gmailWebLink, '_blank');
-      }, 1000);
-    } else {
-      // Desktop: always open Gmail web
-      const gmailWebLink = `https://mail.google.com/mail/?view=cm&to=yogamuz13@gmail.com&su=${encodeURIComponent(emailSubject)}`;
+    // Try app link first
+    window.location.href = gmailAppLink;
+    
+    // Fallback to web if app doesn't open within 1 second
+    setTimeout(() => {
       window.open(gmailWebLink, '_blank');
-    }
-  };
+    }, 1000);
+  } else {
+    // Desktop: always open Gmail web
+    const gmailWebLink = `https://mail.google.com/mail/?view=cm&to=prayogo.dev@gmail.com`;
+    window.open(gmailWebLink, '_blank');
+  }
+};
 
   return (
     <div
