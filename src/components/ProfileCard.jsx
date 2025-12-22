@@ -32,7 +32,7 @@ const ProfileCardComponent = ({
   title = 'Software Engineer',
   handle = 'yogamuz',
   status = 'Online',
-  contactText = 'Contact',
+  contactText = 'CV',
   showUserInfo = true,
   onContactClick
 }) => {
@@ -300,9 +300,30 @@ const ProfileCardComponent = ({
     [iconUrl, grainUrl, innerGradient, behindGlowColor, behindGlowSize]
   );
 
-  const handleContactClick = useCallback(() => {
-    onContactClick?.();
-  }, [onContactClick]);
+const handleContactClick = useCallback(() => {
+  // Detect if mobile device
+  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  
+  if (isMobile) {
+    // Try to open Gmail app first (will fallback to web if app not installed)
+    const gmailAppLink = `googlegmail://co?to=prayogo.dev@gmail.com`;
+    const gmailWebLink = `https://mail.google.com/mail/?view=cm&to=prayogo.dev@gmail.com`;
+    
+    // Try app link first
+    window.location.href = gmailAppLink;
+    
+    // Fallback to web if app doesn't open within 1 second
+    setTimeout(() => {
+      window.open(gmailWebLink, '_blank');
+    }, 1000);
+  } else {
+    // Desktop: always open Gmail web
+    const gmailWebLink = `https://mail.google.com/mail/?view=cm&to=prayogo.dev@gmail.com`;
+    window.open(gmailWebLink, '_blank');
+  }
+  
+  onContactClick?.();
+}, [onContactClick]);
 
   return (
     <div ref={wrapRef} className={`pc-card-wrapper ${className}`.trim()} style={cardStyle}>

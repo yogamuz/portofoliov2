@@ -17,20 +17,20 @@ export default function Footer() {
       defaultColor: "text-[#0077B5]",
       label: "LinkedIn",
     },
-    {
-      icon: FaTiktok,
-      href: "https://tiktok.com/yogamuz",
-      hoverColor: "hover:text-[#EE1D52]",
-      defaultColor: "text-[#EE1D52]",
-      label: "TikTok",
-    },
-    {
-      icon: FaInstagram,
-      href: "https://instagram.com/yogamuz",
-      hoverColor: "hover:text-[#E4405F]",
-      defaultColor: "text-[#E4405F]",
-      label: "Instagram",
-    },
+    // {
+    //   icon: FaTiktok,
+    //   href: "https://tiktok.com/yogamuz",
+    //   hoverColor: "hover:text-[#EE1D52]",
+    //   defaultColor: "text-[#EE1D52]",
+    //   label: "TikTok",
+    // },
+    // {
+    //   icon: FaInstagram,
+    //   href: "https://instagram.com/yogamuz",
+    //   hoverColor: "hover:text-[#E4405F]",
+    //   defaultColor: "text-[#E4405F]",
+    //   label: "Instagram",
+    // },
   ];
 
   return (
@@ -77,7 +77,7 @@ export default function Footer() {
               }, 1000);
             }
           }}
-          className="text-gray-400 hover:text-cyan-400 hover:-translate-y-1 transition-all duration-300 writing-mode-vertical"
+          className="text-gray-400 hover:text-[#8a7fff] hover:-translate-y-1 transition-all duration-300 writing-mode-vertical"
           style={{ writingMode: "vertical-rl" }}
           aria-label="Email"
         >

@@ -74,7 +74,7 @@ export default function App() {
             </section>
 
             <section id="contact">
-              <Contact />
+              {/* <Contact /> */}
               <Footer />
             </section>
           </main>

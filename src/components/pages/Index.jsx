@@ -40,10 +40,11 @@ export default function Home() {
         <div className="z-10">
           <ProfileCard
             avatarUrl="https://res.cloudinary.com/dzfqsajp3/image/upload/v1761733354/Screenshot_2025-10-29_172205-removebg-preview_m24hpm.png"
+            iconUrl="https://res.cloudinary.com/dzfqsajp3/image/upload/v1766410570/ss-code_icgwak.png"
             name="Prayogo"
             title="Fullstack Web Developer"
             status="Available"
-            contactText="Contact"
+            contactText="Send me a message!"
             showUserInfo={true}
             enableTilt={true}
             enableMobileTilt={false}

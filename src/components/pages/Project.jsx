@@ -231,8 +231,10 @@ export default function Project() {
       githubBackendUrl: "https://github.com/yogamuz/shopserver",
       liveUrl: "https://shopcarts1.netlify.app",
       type: t("project.items.0.type") || "Full Stack",
-      previewImage: "https://res.cloudinary.com/dzfqsajp3/image/upload/v1764504309/banner-shopcart-laptop_epqkna.jpg",
-      hoverImage: "https://res.cloudinary.com/dzfqsajp3/image/upload/v1764504382/banner-shopcart-mobile_jze1qq.jpg",
+      previewImage:
+        "https://res.cloudinary.com/dzfqsajp3/image/upload/v1764504309/banner-shopcart-laptop_epqkna.jpg",
+      hoverImage:
+        "https://res.cloudinary.com/dzfqsajp3/image/upload/v1764504382/banner-shopcart-mobile_jze1qq.jpg",
     },
     {
       title: "Inventory Management System",
@@ -247,7 +249,7 @@ export default function Project() {
         "https://res.cloudinary.com/dzfqsajp3/image/upload/v1764582853/laptop-boci_ldshpo.jpg",
       hoverImage:
         "https://res.cloudinary.com/dzfqsajp3/image/upload/v1764582853/mobile_boci_ycqpth.jpg",
-    }
+    },
   ];
 
   return (
@@ -258,6 +260,10 @@ export default function Project() {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-main mb-4 text-center">
             {t("project.title")}
           </h2>
+          <p className="text-gray-400 text-center max-w-2xl mx-auto text-sm sm:text-base">
+            A collection of projects I’ve built while learning and exploring web
+            development.
+          </p>
         </div>
 
         {/* Projects Grid - RESPONSIVE */}
