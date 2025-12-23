@@ -76,7 +76,7 @@ export default function App() {
 
             <section id="certificate">
               {/* <Contact /> */}
-              <Certificate />
+              {/* <Certificate /> */}
               <Footer />
             </section>
           </main>
