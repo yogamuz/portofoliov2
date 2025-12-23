@@ -60,6 +60,8 @@ export default function HexLogo({ onLoadComplete }) {
             style={{
               filter: "drop-shadow(0 0 25px rgba(15,23,42,0.7))",
               strokeLinecap: "round",
+              strokeDasharray: "1000",
+              strokeDashoffset: "1000",
             }}
           />
         </svg>
