@@ -9,6 +9,7 @@ import Skills from "@/components/Skills";
 import Project from "@/components/pages/Project";
 import SplashCursor from "@/components/SplashCursor";
 import Contact from "@/components/pages/Contact";
+import Certificate from "./components/pages/Certificate";
 import Footer from "@/components/Footer/Footer";
 
 
@@ -73,8 +74,9 @@ export default function App() {
               <Project />
             </section>
 
-            <section id="contact">
+            <section id="certificate">
               {/* <Contact /> */}
+              <Certificate />
               <Footer />
             </section>
           </main>

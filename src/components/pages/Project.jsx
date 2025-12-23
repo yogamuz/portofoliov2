@@ -203,7 +203,7 @@ line-clamp-3 sm:line-clamp-4"
                   )
                 }
                 gridSize={6}
-                pixelColor="#ffffff"
+                pixelColor="#8a7fff"
                 once={false}
                 animationStepDuration={0.2}
                 style={{ width: "100%", height: "100%", borderRadius: "8px" }}
