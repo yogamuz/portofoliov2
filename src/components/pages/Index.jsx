@@ -47,7 +47,7 @@ export default function Home() {
             contactText="Send me a message!"
             showUserInfo={true}
             enableTilt={true}
-            enableMobileTilt={false}
+            enableMobileTilt={true}
             behindGlowEnabled={true}
             onContactClick={handleContactClick}
           />
