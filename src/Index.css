@@ -30,6 +30,9 @@ body.loaded,
 #root.loaded {
   background: #000000;
 }
+html:not(.loaded) {
+  overflow: hidden;
+}
 
 body {
   font-family: "Poppins", sans-serif;
