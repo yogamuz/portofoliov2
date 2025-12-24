@@ -1,14 +1,14 @@
-import { useRef, useEffect, useState, useMemo, useId } from "react";
-import { motion, useMotionValue, useSpring } from "motion/react";
-import ProfileCard from "@/components/ProfileCard";
-import TextPressure from "@/components/TextPressure";
+import ProfileCard from '@/components/ProfileCard';
+import TextPressure from '@/components/TextPressure';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const REPEAT_COUNT = 8;
 
 // ========== MAIN HOME COMPONENT ==========
 export default function Home() {
   const handleContactClick = () => {
-    console.log("Contact button clicked");
+    console.log('Contact button clicked');
   };
 
   return (
@@ -39,8 +39,8 @@ export default function Home() {
         {/* ProfileCard di Tengah */}
         <div className="z-10">
           <ProfileCard
-            avatarUrl="https://res.cloudinary.com/dzfqsajp3/image/upload/v1761733354/Screenshot_2025-10-29_172205-removebg-preview_m24hpm.png"
-            iconUrl="https://res.cloudinary.com/dzfqsajp3/image/upload/v1766410570/ss-code_icgwak.png"
+            avatarUrl="https://res.cloudinary.com/dzfqsajp3/image/upload/w_300,f_auto,q_auto/v1761733354/Screenshot_2025-10-29_172205-removebg-preview_m24hpm.png"
+            iconUrl="https://res.cloudinary.com/dzfqsajp3/image/upload/w_200,f_auto,q_auto/v1766410570/ss-code_icgwak.png"
             name="Prayogo"
             title="Fullstack Web Developer"
             status="Available"

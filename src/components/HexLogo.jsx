@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from 'react';
 
 export default function HexLogo({ onLoadComplete }) {
   const [showText, setShowText] = useState(false);
@@ -17,22 +17,22 @@ export default function HexLogo({ onLoadComplete }) {
 
     requestAnimationFrame(() => {
       setTimeout(() => {
-        shape.style.transition = "stroke-dashoffset 1.8s ease-out";
-        shape.style.strokeDashoffset = "0";
+        shape.style.transition = 'stroke-dashoffset 1.8s ease-out';
+        shape.style.strokeDashoffset = '0';
       }, 200);
     });
 
     const textTimer = setTimeout(() => {
       setShowText(true);
-    }, 2000);
+    }, 1500);
 
     const fadeOutTimer = setTimeout(() => {
       setIsFadingOut(true);
       setTimeout(() => {
         setIsLoading(false);
         if (onLoadComplete) onLoadComplete();
-      }, 700);
-    }, 3000);
+      }, 500);
+    }, 2500);
 
     return () => {
       clearTimeout(textTimer);
@@ -45,8 +45,9 @@ export default function HexLogo({ onLoadComplete }) {
   return (
     <div
       className={`fixed inset-0 z-50 flex items-center justify-center transition-opacity duration-700 ${
-        isFadingOut ? "opacity-0" : "opacity-100"
+        isFadingOut ? 'opacity-0' : 'opacity-100'
       }`}
+      style={{ backgroundColor: '#0a0e1a' }}
     >
       <div className="relative flex items-center justify-center">
         {/* Diamond Shape */}
@@ -58,10 +59,10 @@ export default function HexLogo({ onLoadComplete }) {
             stroke="#3B82F6"
             strokeWidth="3"
             style={{
-              filter: "drop-shadow(0 0 25px rgba(15,23,42,0.7))",
-              strokeLinecap: "round",
-              strokeDasharray: "1000",
-              strokeDashoffset: "1000",
+              filter: 'drop-shadow(0 0 25px rgba(15,23,42,0.7))',
+              strokeLinecap: 'round',
+              strokeDasharray: '1000',
+              strokeDashoffset: '1000',
             }}
           />
         </svg>
@@ -69,14 +70,14 @@ export default function HexLogo({ onLoadComplete }) {
         {/* Floating P */}
         <div
           className={`absolute inset-0 flex items-center justify-center transition-opacity duration-700 ${
-            showText ? "opacity-100" : "opacity-0"
+            showText ? 'opacity-100' : 'opacity-0'
           }`}
         >
           <span
             className="text-4xl font-bold text-[#3B82F6]"
             style={{
-              textShadow: "0 0 35px rgba(15,23,42,0.7)",
-              transform: "translateY(0px)",
+              textShadow: '0 0 35px rgba(15,23,42,0.7)',
+              transform: 'translateY(0px)',
             }}
           >
             P

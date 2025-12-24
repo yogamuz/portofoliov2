@@ -1,7 +1,8 @@
-import { Folder, Github, ExternalLink } from "lucide-react";
-import { useState } from "react";
-import PixelTransition from "@/components/PixelTransition";
-import { useTranslation } from "react-i18next";
+import { Folder, Github, ExternalLink } from 'lucide-react';
+import { useState } from 'react';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
+import PixelTransition from '@/components/PixelTransition';
 
 // Tooltip Component
 function Tooltip({ text, children }) {
@@ -9,10 +10,7 @@ function Tooltip({ text, children }) {
 
   return (
     <div className="relative inline-block">
-      <div
-        onMouseEnter={() => setIsVisible(true)}
-        onMouseLeave={() => setIsVisible(false)}
-      >
+      <div onMouseEnter={() => setIsVisible(true)} onMouseLeave={() => setIsVisible(false)}>
         {children}
       </div>
       {isVisible && (
@@ -36,7 +34,6 @@ function ProjectCard({
   previewImage,
   hoverImage,
 }) {
-  const { t } = useTranslation();
   const hasMultipleRepos = githubUrl && githubBackendUrl;
 
   return (
@@ -53,7 +50,7 @@ function ProjectCard({
               {hasMultipleRepos ? (
                 <>
                   {githubUrl && (
-                    <Tooltip text={t("project.tooltip.frontend")}>
+                    <Tooltip text="Frontend">
                       <a
                         href={githubUrl}
                         target="_blank"
@@ -65,7 +62,7 @@ function ProjectCard({
                     </Tooltip>
                   )}
                   {githubBackendUrl && (
-                    <Tooltip text={t("project.tooltip.backend")}>
+                    <Tooltip text="Backend">
                       <a
                         href={githubBackendUrl}
                         target="_blank"
@@ -130,10 +127,7 @@ line-clamp-3 sm:line-clamp-4"
           {/* Technologies Used */}
           <div className="flex flex-wrap gap-1.5 sm:gap-2 text-[10px] sm:text-xs text-gray-500 font-mono">
             {technologies.map((tech, index) => (
-              <span
-                key={index}
-                className="hover:text-cyan-400 transition-colors duration-200"
-              >
+              <span key={index} className="hover:text-cyan-400 transition-colors duration-200">
                 {tech}
               </span>
             ))}
@@ -151,49 +145,50 @@ line-clamp-3 sm:line-clamp-4"
             >
               <PixelTransition
                 firstContent={
-                  <img
+                  <LazyLoadImage
                     src={previewImage}
                     alt={`${title} preview`}
+                    effect="blur"
                     style={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
-                      borderRadius: "8px",
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                      borderRadius: '8px',
                     }}
                   />
                 }
                 secondContent={
                   hoverImage ? (
-                    // Jika ada hoverImage, tampilkan gambar
-                    <img
+                    <LazyLoadImage
                       src={hoverImage}
                       alt={`${title} hover`}
+                      effect="blur"
                       style={{
-                        width: "100%",
-                        height: "100%",
-                        objectFit: "cover",
-                        borderRadius: "8px",
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                        borderRadius: '8px',
                       }}
                     />
                   ) : (
                     // Jika tidak ada hoverImage, tampilkan teks seperti sekarang
                     <div
                       style={{
-                        width: "100%",
-                        height: "100%",
-                        display: "grid",
-                        placeItems: "center",
-                        backgroundColor: "#22d3ee",
-                        borderRadius: "8px",
+                        width: '100%',
+                        height: '100%',
+                        display: 'grid',
+                        placeItems: 'center',
+                        backgroundColor: '#22d3ee',
+                        borderRadius: '8px',
                       }}
                     >
                       <p
                         style={{
                           fontWeight: 900,
-                          fontSize: "0.65rem",
-                          color: "#000",
-                          textAlign: "center",
-                          padding: "0 8px",
+                          fontSize: '0.65rem',
+                          color: '#000',
+                          textAlign: 'center',
+                          padding: '0 8px',
                         }}
                         className="sm:text-xs"
                       >
@@ -206,7 +201,7 @@ line-clamp-3 sm:line-clamp-4"
                 pixelColor="#8a7fff"
                 once={false}
                 animationStepDuration={0.2}
-                style={{ width: "100%", height: "100%", borderRadius: "8px" }}
+                style={{ width: '100%', height: '100%', borderRadius: '8px' }}
               />
             </a>
           )}
@@ -218,37 +213,34 @@ line-clamp-3 sm:line-clamp-4"
 
 // Main Project Section
 export default function Project() {
-  const { t } = useTranslation();
-
   const projects = [
     {
-      title: t("project.items.0.title") || "ShopCart E-commerce",
+      title: 'ShopCart E-commerce',
       description:
-        t("project.items.0.description") ||
-        "A full-stack e-commerce application with shopping cart functionality, product management, and secure checkout process.",
-      technologies: ["Vue JS", "Tailwind CSS", "Node JS", "MongoDB"],
-      githubUrl: "https://github.com/yogamuz/shopcart",
-      githubBackendUrl: "https://github.com/yogamuz/shopserver",
-      liveUrl: "https://shopcarts1.netlify.app",
-      type: t("project.items.0.type") || "Full Stack",
+        'A full-stack e-commerce application with shopping cart functionality, product management, and secure checkout process.',
+      technologies: ['Vue JS', 'Tailwind CSS', 'Node JS', 'MongoDB'],
+      githubUrl: 'https://github.com/yogamuz/shopcart',
+      githubBackendUrl: 'https://github.com/yogamuz/shopserver',
+      liveUrl: 'https://shopcarts1.netlify.app',
+      type: 'Full Stack',
       previewImage:
-        "https://res.cloudinary.com/dzfqsajp3/image/upload/v1764504309/banner-shopcart-laptop_epqkna.jpg",
+        'https://res.cloudinary.com/dzfqsajp3/image/upload/w_400,f_auto,q_auto/v1764504309/banner-shopcart-laptop_epqkna.jpg',
       hoverImage:
-        "https://res.cloudinary.com/dzfqsajp3/image/upload/v1764504382/banner-shopcart-mobile_jze1qq.jpg",
+        'https://res.cloudinary.com/dzfqsajp3/image/upload/w_400,f_auto,q_auto/v1764504382/banner-shopcart-mobile_jze1qq.jpg',
     },
     {
-      title: "Inventory Management System",
+      title: 'Inventory Management System',
       description:
-        "A simple yet functional inventory management system with product CRUD, stock tracking, daily sales overview, and Excel export for 7–30 day sales reports.",
-      technologies: ["React JS", "Tailwind CSS", "Node JS", "MongoDB"],
-      githubUrl: "https://github.com/yogamuz/inventory-pos",
-      githubBackendUrl: "https://github.com/yogamuz/inventory-pos-server",
-      liveUrl: "https://bocimanager.netlify.app",
-      type: "Campus Project",
+        'A simple yet functional inventory management system with product CRUD, stock tracking, daily sales overview, and Excel export for 7–30 day sales reports.',
+      technologies: ['React JS', 'Tailwind CSS', 'Node JS', 'MongoDB'],
+      githubUrl: 'https://github.com/yogamuz/inventory-pos',
+      githubBackendUrl: 'https://github.com/yogamuz/inventory-pos-server',
+      liveUrl: 'https://bocimanager.netlify.app',
+      type: 'Campus Project',
       previewImage:
-        "https://res.cloudinary.com/dzfqsajp3/image/upload/v1764582853/laptop-boci_ldshpo.jpg",
+        'https://res.cloudinary.com/dzfqsajp3/image/upload/v1764582853/laptop-boci_ldshpo.jpg',
       hoverImage:
-        "https://res.cloudinary.com/dzfqsajp3/image/upload/v1764582853/mobile_boci_ycqpth.jpg",
+        'https://res.cloudinary.com/dzfqsajp3/image/upload/v1764582853/mobile_boci_ycqpth.jpg',
     },
   ];
 
@@ -258,11 +250,10 @@ export default function Project() {
         {/* Section Header */}
         <div className="mb-8 sm:mb-10 md:mb-12">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-main mb-4 text-center">
-            {t("project.title")}
+            Projects
           </h2>
           <p className="text-gray-400 text-center max-w-2xl mx-auto text-sm sm:text-base">
-            A collection of projects I’ve built while learning and exploring web
-            development.
+            A collection of projects I've built while learning and exploring web development.
           </p>
         </div>
 

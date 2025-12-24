@@ -1,31 +1,42 @@
 // App.jsx
-import { useState, useEffect } from "react";
-import HexLogo from "@/components/HexLogo";
-import FloatingLines from "@/components/FloatingLines";
-import Header from "@/components/Header/Header";
-import Home from "@/components/pages/Index";
-import About from "@/components/pages/About";
-import Skills from "@/components/Skills";
-import Project from "@/components/pages/Project";
-import SplashCursor from "@/components/SplashCursor";
-import Contact from "@/components/pages/Contact";
-import Certificate from "./components/pages/Certificate";
-import Footer from "@/components/Footer/Footer";
+import { useState, useEffect, lazy, Suspense } from 'react';
+import HexLogo from '@/components/HexLogo';
+import SplashCursor from '@/components/SplashCursor';
+import Header from '@/components/Header/Header';
+import Footer from '@/components/Footer/Footer';
+import UnderwaterBackground from '@/components/UnderwaterBackground';
 
+// Lazy load components
+const Home = lazy(() => import('@/components/pages/Index'));
+const About = lazy(() => import('@/components/pages/About'));
+const Skills = lazy(() => import('@/components/Skills'));
+const Project = lazy(() => import('@/components/pages/Project'));
+const Contact = lazy(() => import('@/components/pages/Contact'));
+const Certificate = lazy(() => import('./components/pages/Certificate'));
+
+// Preload Home component saat app pertama kali mount
+const preloadHome = () => {
+  const HomeComponent = import('@/components/pages/Index');
+};
 
 export default function App() {
   const [isLoaded, setIsLoaded] = useState(false);
 
+  // Preload Home component segera setelah mount
+  useEffect(() => {
+    preloadHome();
+  }, []);
+
   // Handle overflow: hidden saat loading, auto setelah loaded
   useEffect(() => {
     if (!isLoaded) {
-      document.documentElement.style.overflow = "hidden";
+      document.documentElement.style.overflow = 'hidden';
     } else {
-      document.documentElement.style.overflow = "auto";
+      document.documentElement.style.overflow = 'auto';
     }
 
     return () => {
-      document.documentElement.style.overflow = "auto";
+      document.documentElement.style.overflow = 'auto';
     };
   }, [isLoaded]);
 
@@ -35,22 +46,11 @@ export default function App() {
 
       <div
         className={`relative w-full min-h-screen overflow-x-hidden transition-opacity duration-1000 ${
-          isLoaded ? "opacity-100" : "opacity-0"
+          isLoaded ? 'opacity-100' : 'opacity-0'
         }`}
-        style={{ backgroundColor: '#0a0e1a' }}
       >
-        <div className="fixed inset-0 z-0 ">
-          <FloatingLines
-            enabledWaves={["top", "middle", "bottom"]}
-            lineCount={[2, 3, 5]}
-            lineDistance={[5]}
-            bendRadius={2.0}
-            bendStrength={-1.5}
-            mouseDamping={0.08}
-            interactive={true}
-            parallax={true}
-          />
-        </div>
+        {/* Underwater Background Effect */}
+        <UnderwaterBackground />
 
         <div className="relative z-10 w-full">
           <Header />
@@ -62,23 +62,30 @@ export default function App() {
               <Home />
             </section>
 
-            <section id="about">
-              <About />
-            </section>
+            <Suspense fallback={<div className="min-h-screen" />}>
+              <section id="about">
+                <About />
+              </section>
+            </Suspense>
 
-            <section id="skills">
-              <Skills />
-            </section>
+            <Suspense fallback={<div className="min-h-screen" />}>
+              <section id="skills">
+                <Skills />
+              </section>
+            </Suspense>
 
-            <section id="project">
-              <Project />
-            </section>
+            <Suspense fallback={<div className="min-h-screen" />}>
+              <section id="project">
+                <Project />
+              </section>
+            </Suspense>
 
-            <section id="certificate">
-              {/* <Contact /> */}
-              {/* <Certificate /> */}
-              <Footer />
-            </section>
+            <Suspense fallback={<div className="min-h-screen" />}>
+              <section id="certificate">
+                <Certificate />
+                <Footer />
+              </section>
+            </Suspense>
           </main>
         </div>
       </div>

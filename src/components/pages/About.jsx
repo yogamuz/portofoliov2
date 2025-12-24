@@ -1,9 +1,7 @@
-import { useState, useEffect, useRef } from "react";
-import GitHubCalendar from "react-github-calendar";
-import { useTranslation } from "react-i18next";
+import { useState, useEffect, useRef } from 'react';
+import GitHubCalendar from 'react-github-calendar';
 
 export default function About() {
-  const { t } = useTranslation();
   const [isVisible, setIsVisible] = useState(false);
   const [isCalendarVisible, setIsCalendarVisible] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -82,24 +80,23 @@ export default function About() {
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
     handleScroll();
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
-  const description = t("about.description");
-  const words = description.split(" ");
+  const description =
+    'I am a fifth-semester student in the Information Technology program at Universitas Bina Sarana Informatika. Currently, I am deepening my knowledge of web development on both the frontend and backend sides, with the goal of becoming a Full Stack Web Developer. Although I study both areas, I am more inclined toward backend development because I enjoy working with logic, data structures, and understanding how systems operate behind the scenes. I have a strong passion for learning and am committed to continuously improving my skills, especially in adapting to the fast-paced and ever-evolving world of technology.';
+  const words = description.split(' ');
 
   return (
     <div ref={sectionRef} className="w-full px-8 py-8 md:py-12 flex flex-col">
       {/* Header Section */}
       <div className="w-full pt-4 md:pt-6 mb-6 md:mb-8">
-        <h2 className="text-4xl md:text-5xl font-bold text-main text-center">
-          {t("about.title")}
-        </h2>
+        <h2 className="text-4xl md:text-5xl font-bold text-main text-center">About Me</h2>
       </div>
 
       {/* Content Section - Paragraf About */}
@@ -108,24 +105,25 @@ export default function About() {
           <div
             ref={textRef}
             className={`text-base sm:text-lg md:text-xl text-justify leading-relaxed transition-opacity duration-700 ${
-              isVisible ? "opacity-100" : "opacity-0"
+              isVisible ? 'opacity-100' : 'opacity-0'
             }`}
           >
             {words.map((word, index) => {
-              const wordProgress = (index / words.length);
+              const wordProgress = index / words.length;
               const opacity = scrollProgress >= wordProgress ? 1 : 0.3;
-              const color = scrollProgress >= wordProgress ? "rgb(255, 255, 255)" : "rgb(50, 50, 50)";
-              
+              const color =
+                scrollProgress >= wordProgress ? 'rgb(255, 255, 255)' : 'rgb(50, 50, 50)';
+
               return (
                 <span
                   key={index}
                   style={{
                     color: color,
                     opacity: opacity,
-                    transition: "color 0.3s ease, opacity 0.3s ease",
+                    transition: 'color 0.3s ease, opacity 0.3s ease',
                   }}
                 >
-                  {word}{" "}
+                  {word}{' '}
                 </span>
               );
             })}
@@ -137,15 +135,15 @@ export default function About() {
       <div
         ref={calendarRef}
         className={`max-w-5xl mx-auto w-full mb-16 transition-opacity duration-700 ${
-          isCalendarVisible ? "opacity-100" : "opacity-0"
+          isCalendarVisible ? 'opacity-100' : 'opacity-0'
         }`}
       >
         <div className="mb-6">
           <h3 className="text-2xl md:text-3xl font-bold text-main text-center mb-2">
-            {t("about.github.title")}
+            GitHub Contributions
           </h3>
           <p className="text-gray-400 text-center text-sm md:text-base">
-            {t("about.github.subtitle")}
+            My coding activity over the past year
           </p>
         </div>
 
@@ -159,7 +157,7 @@ export default function About() {
               fontSize={14}
               colorScheme="dark"
               theme={{
-                dark: ["#161b22", "#0e4429", "#006d32", "#26a641", "#39d353"],
+                dark: ['#161b22', '#0e4429', '#006d32', '#26a641', '#39d353'],
               }}
             />
           </div>

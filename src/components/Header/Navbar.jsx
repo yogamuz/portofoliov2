@@ -1,22 +1,10 @@
 // components/Header/Navbar.jsx
-import { useState } from "react";
-import { useTranslation } from "react-i18next";
-import { ID } from "country-flag-icons/react/3x2";
-import { GB } from "country-flag-icons/react/3x2";
 import StaggeredMenu from "../StaggeredMenu";
 import Magnet from "../Magnet";
 
 function Navbar() {
-  const [showLangMenu, setShowLangMenu] = useState(false);
-  const { t, i18n } = useTranslation();
 
-  const languages = [
-    { code: "id", label: "Indonesia", Flag: ID },
-    { code: "en", label: "English", Flag: GB },
-  ];
 
-  const currentLang =
-    languages.find((lang) => lang.code === i18n.language) || languages[1];
 
   const handleMenuItemClick = (e, link) => {
     e.preventDefault();
@@ -47,29 +35,29 @@ function Navbar() {
 
   const menuItems = [
     {
-      label: t("nav.home"),
+      label: "HOME",
       link: "#home",
       ariaLabel: "Navigate to home section",
       onClick: handleMenuItemClick,
     },
     {
-      label: t("nav.about"),
+      label: "ABOUT",
       link: "#about",
       ariaLabel: "Navigate to about section",
       onClick: handleMenuItemClick,
     },
     {
-      label: t("nav.project"),
+      label: "PROJECTS",
       link: "#project",
       ariaLabel: "Navigate to project section",
       onClick: handleMenuItemClick,
     },
-    // {
-    //   label: t("nav.contact"),
-    //   link: "#contact",
-    //   ariaLabel: "Navigate to contact section",
-    //   onClick: handleMenuItemClick,
-    // },
+    {
+      label: "CERTIFS",
+      link: "#certificate",
+      ariaLabel: "Navigate to  section",
+      onClick: handleMenuItemClick,
+    },
   ];
 
   const socialItems = [

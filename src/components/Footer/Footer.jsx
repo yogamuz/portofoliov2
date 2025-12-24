@@ -1,37 +1,7 @@
 import React from 'react';
-import { FaLinkedin, FaGithub, FaTiktok, FaInstagram } from 'react-icons/fa';
 import HolographicSocial from '../HolographicSosial';
 export default function Footer() {
-  const socialLinks = [
-    {
-      icon: FaGithub,
-      href: 'https://github.com/yogamuz',
-      hoverColor: 'hover:text-white',
-      defaultColor: 'text-gray-400',
-      label: 'GitHub',
-    },
-    {
-      icon: FaLinkedin,
-      href: 'https://linkedin.com/in/prayogo-',
-      hoverColor: 'hover:text-[#0077B5]',
-      defaultColor: 'text-[#0077B5]',
-      label: 'LinkedIn',
-    },
-    // {
-    //   icon: FaTiktok,
-    //   href: "https://tiktok.com/yogamuz",
-    //   hoverColor: "hover:text-[#EE1D52]",
-    //   defaultColor: "text-[#EE1D52]",
-    //   label: "TikTok",
-    // },
-    // {
-    //   icon: FaInstagram,
-    //   href: "https://instagram.com/yogamuz",
-    //   hoverColor: "hover:text-[#E4405F]",
-    //   defaultColor: "text-[#E4405F]",
-    //   label: "Instagram",
-    // },
-  ];
+
 
   return (
     <footer className="relative w-full overflow-hidden bg-transparent">
