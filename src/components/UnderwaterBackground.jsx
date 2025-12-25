@@ -41,7 +41,7 @@ export default function UnderwaterBackground() {
         gsap.to(spotlightRef.current, {
           left: x,
           top: y,
-          duration: 0.8,
+          duration: 0.3,
           ease: 'power1.out',
         });
       }

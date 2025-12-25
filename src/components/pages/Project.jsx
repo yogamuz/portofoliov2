@@ -222,7 +222,7 @@ export default function Project() {
       githubUrl: 'https://github.com/yogamuz/shopcart',
       githubBackendUrl: 'https://github.com/yogamuz/shopserver',
       liveUrl: 'https://shopcarts1.netlify.app',
-      type: 'Full Stack',
+      type: 'Personal Project',
       previewImage:
         'https://res.cloudinary.com/dzfqsajp3/image/upload/w_400,f_auto,q_auto/v1764504309/banner-shopcart-laptop_epqkna.jpg',
       hoverImage:
