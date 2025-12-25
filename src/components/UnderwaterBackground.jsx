@@ -6,6 +6,7 @@ export default function UnderwaterBackground() {
   const caustics2Ref = useRef(null);
   const spotlightRef = useRef(null);
   const vignetteRef = useRef(null);
+  const bubbleRefs = useRef([]);
 
   useEffect(() => {
     // Animasi cahaya laut layer 1 - pergerakan diagonal lambat
@@ -41,7 +42,7 @@ export default function UnderwaterBackground() {
         gsap.to(spotlightRef.current, {
           left: x,
           top: y,
-          duration: 0.3,
+          duration: 0.8,
           ease: 'power1.out',
         });
       }
@@ -49,8 +50,42 @@ export default function UnderwaterBackground() {
 
     window.addEventListener('mousemove', handleMouseMove);
 
+    // Animate floating bubbles throughout the page
+    bubbleRefs.current.forEach((bubble, index) => {
+      if (bubble) {
+        const duration = gsap.utils.random(10, 16);
+        const xOffset = gsap.utils.random(-30, 30);
+        const delay = gsap.utils.random(0, 8);
+        
+        gsap.fromTo(
+          bubble,
+          {
+            y: 0,
+            opacity: 0,
+            scale: gsap.utils.random(0.4, 1),
+          },
+          {
+            y: -window.innerHeight - 200,
+            opacity: 0.6,
+            x: xOffset,
+            duration: duration,
+            ease: 'none',
+            repeat: -1,
+            delay: delay,
+            onRepeat: () => {
+              // Randomize position on repeat for variety
+              gsap.set(bubble, {
+                opacity: 0,
+              });
+            },
+          }
+        );
+      }
+    });
+
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
+      gsap.killTweensOf(bubbleRefs.current);
     };
   }, []);
 
@@ -101,8 +136,8 @@ export default function UnderwaterBackground() {
         ref={spotlightRef}
         className="fixed pointer-events-none z-0"
         style={{
-          width: '500px',
-          height: '500px',
+          width: '600px',
+          height: '600px',
           left: '50%',
           top: '50%',
           background: 'radial-gradient(circle, rgba(240, 248, 255, 0.18) 0%, rgba(180, 210, 240, 0.10) 25%, rgba(140, 180, 220, 0.05) 45%, transparent 70%)',
@@ -131,9 +166,30 @@ export default function UnderwaterBackground() {
         }}
       />
 
+      {/* Floating Bubbles - Throughout entire page */}
+      <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+        {[...Array(18)].map((_, i) => (
+          <div
+            key={i}
+            ref={(el) => (bubbleRefs.current[i] = el)}
+            className="absolute rounded-full"
+            style={{
+              width: `${gsap.utils.random(4, 12)}px`,
+              height: `${gsap.utils.random(4, 12)}px`,
+              background: 'radial-gradient(circle at 30% 30%, rgba(125, 211, 252, 0.5), rgba(125, 211, 252, 0.2))',
+              border: '1px solid rgba(125, 211, 252, 0.3)',
+              left: `${[5, 12, 18, 25, 32, 40, 48, 55, 62, 68, 75, 82, 88, 92, 96, 15, 35, 70][i]}%`,
+              bottom: '0px',
+              filter: 'blur(0.5px)',
+              boxShadow: '0 0 8px rgba(125, 211, 252, 0.35)',
+            }}
+          />
+        ))}
+      </div>
+
       {/* Subtle floating particles - minimal and delicate */}
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
-        {[...Array(12)].map((_, i) => (
+        {[...Array(10)].map((_, i) => (
           <div
             key={i}
             className="absolute rounded-full"
