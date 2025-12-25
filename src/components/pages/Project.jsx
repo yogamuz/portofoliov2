@@ -46,7 +46,7 @@ function Tooltip({ text, children }) {
 function ProjectCard({ title, description, technologies, githubUrl, githubBackendUrl, liveUrl, type, previewImage, hoverImage }) {
   const hasMultipleRepos = githubUrl && githubBackendUrl;
   const [isExpanded, setIsExpanded] = useState(false);
-  const maxLength = 150;
+  const maxLength = 200;
   const [showModal, setShowModal] = useState(false);
   const shouldTruncate = description.length > maxLength;
   return (
