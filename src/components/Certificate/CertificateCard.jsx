@@ -39,7 +39,7 @@ export default function CertificateCard({ caption, certificateUrl, certificateIm
         </div>
       </a>
       <div className="mt-3 text-center w-full px-2">
-        <p className="text-xs sm:text-sm font-semibold text-gray-300 uppercase tracking-wider">{caption}</p>
+        <p className="text-xs sm:text-sm font-semibold text-secondary uppercase tracking-wider">{caption}</p>
       </div>
     </div>
   );
