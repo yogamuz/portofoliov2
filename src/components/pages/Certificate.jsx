@@ -95,7 +95,7 @@ export default function Certificate() {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-main mb-4 text-center">
             Courses & Certifications
           </h2>
-          <p className="text-gray-400 text-center max-w-2xl mx-auto text-sm sm:text-base mb-6">
+          <p className="text-secondary text-center max-w-2xl mx-auto text-sm sm:text-base mb-6">
             Certificates from online learning platforms
           </p>
 
@@ -176,12 +176,10 @@ export default function Certificate() {
         ) : (
           <div className="flex items-center justify-center min-h-[300px]">
             <div className="text-center">
-              <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#8a7fff] mb-2">
+              <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-secondary mb-2">
                 Coming Soon
               </p>
-              <p className="text-gray-400 text-sm sm:text-base">
-                TOEFL certificates will be available soon
-              </p>
+
             </div>
           </div>
         )}

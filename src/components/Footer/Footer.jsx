@@ -25,7 +25,7 @@ export default function Footer() {
         />
 
         {/* Vertical Line with Gradient */}
-        <div className="w-[1.5px] h-28 bg-gradient-to-b from-gray-400 to-transparent"></div>
+        <div className="w-[1.5px] h-28 bg-gradient-to-b from-[#7DD3FC] to-transparent"></div>
       </div>
       {/* Fixed Right Email Bar - Desktop Only */}
       <div className="fixed right-8 bottom-0 z-50 hidden lg:flex flex-col items-center gap-5">
@@ -57,7 +57,7 @@ export default function Footer() {
         </a>
 
         {/* Vertical Line with Gradient */}
-        <div className="w-[1.5px] h-28 bg-gradient-to-b from-gray-400 to-transparent"></div>
+        <div className="w-[1.5px] h-28 bg-gradient-to-b from-[#7DD3FC] to-transparent"></div>
       </div>
 
       {/* Content */}
@@ -84,7 +84,7 @@ export default function Footer() {
         {/* Text Container with Enhanced Borders */}
         <div className="flex items-center justify-center gap-6 md:gap-10 ">
           {/* Left Border (Horizontal with Gradient) */}
-          <div className="w-20 md:w-32 h-[1.5px] bg-gradient-to-r from-transparent via-gray-400 to-gray-400"></div>
+          <div className="w-20 md:w-32 h-[1.5px] bg-gradient-to-r from-transparent via-[#7DD3FC] to-[#7DD3FC]"></div>
 
           {/* Text */}
           <p className="text-gray-300 text-sm md:text-base whitespace-nowrap font-light tracking-wide">
@@ -92,7 +92,7 @@ export default function Footer() {
           </p>
 
           {/* Right Border (Horizontal with Gradient) */}
-          <div className="w-20 md:w-32 h-[1.5px] bg-gradient-to-l from-transparent via-gray-400 to-gray-400"></div>
+          <div className="w-20 md:w-32 h-[1.5px] bg-gradient-to-l from-transparent via-[#7DD3FC] to-[#7DD3FC]"></div>
         </div>
       </div>
     </footer>

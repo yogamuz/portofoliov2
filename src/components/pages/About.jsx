@@ -142,7 +142,7 @@ export default function About() {
           <h3 className="text-2xl md:text-3xl font-bold text-main text-center mb-2">
             GitHub Contributions
           </h3>
-          <p className="text-gray-400 text-center text-sm md:text-base">
+          <p className="text-secondary text-center text-sm md:text-base">
             My coding activity over the past year
           </p>
         </div>

@@ -17,8 +17,8 @@ const TextPressure = ({
   stroke = false,
   scale = false,
 
-  textColor = '#FFFFFF',
-  strokeColor = '#8b5cf6',
+  textColor = '#4FD1C5',
+  strokeColor = '#4FD1C5',
   strokeWidth = 2,
   className = '',
 

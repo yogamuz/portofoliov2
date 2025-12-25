@@ -198,7 +198,7 @@ line-clamp-3 sm:line-clamp-4"
                   )
                 }
                 gridSize={6}
-                pixelColor="#8a7fff"
+                pixelColor="rgba(120, 220, 255, 0.6)"
                 once={false}
                 animationStepDuration={0.2}
                 style={{ width: '100%', height: '100%', borderRadius: '8px' }}
@@ -252,7 +252,7 @@ export default function Project() {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-main mb-4 text-center">
             Projects
           </h2>
-          <p className="text-gray-400 text-center max-w-2xl mx-auto text-sm sm:text-base">
+          <p className="text-secondary text-center max-w-2xl mx-auto text-sm sm:text-base">
             A collection of projects I've built while learning and exploring web development.
           </p>
         </div>

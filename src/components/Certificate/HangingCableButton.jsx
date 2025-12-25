@@ -114,7 +114,7 @@ export default function HangingCableButton({ onClick, children, isActive }) {
         {/* Cable shadow - subtle underwater */}
         <path
           d={`M 100 0 Q ${100 + cableEndX} ${controlY + 2} ${100 + cableEndX} ${cableEndY + 2}`}
-          stroke="rgba(0,0,0,0.2)"
+          stroke="#08121f"
           strokeWidth="2.5"
           fill="none"
           strokeLinecap="round"
@@ -176,7 +176,7 @@ export default function HangingCableButton({ onClick, children, isActive }) {
             border: isActive 
               ? '1px solid rgba(107, 124, 255, 0.35)' 
               : '1px solid rgba(107, 124, 255, 0.15)',
-            color: isActive ? '#E6ECFF' : '#8A94B8',
+            color: isActive ? '#7DD3FC' : '#8A94B8',
             backdropFilter: 'blur(12px)',
             WebkitBackdropFilter: 'blur(12px)',
             boxShadow: isActive || isHovered

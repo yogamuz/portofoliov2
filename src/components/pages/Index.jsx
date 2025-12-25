@@ -26,8 +26,8 @@ export default function Home() {
               weight={true}
               italic={true}
               scale={false}
-              textColor="#ffffff"
-              strokeColor="#8b5cf6"
+              textColor="#7DD3FC"
+              strokeColor="rgba(120, 220, 255, 0.6)"
               strokeWidth={2}
               minFontSize={24}
               fontFamily="Compressa VF"

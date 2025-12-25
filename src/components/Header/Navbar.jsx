@@ -1,32 +1,28 @@
 // components/Header/Navbar.jsx
-import StaggeredMenu from "../StaggeredMenu";
-import Magnet from "../Magnet";
+import StaggeredMenu from '../StaggeredMenu';
+import Magnet from '../Magnet';
 
 function Navbar() {
-
-
-
   const handleMenuItemClick = (e, link) => {
     e.preventDefault();
 
     // Close StaggeredMenu
-    const closeEvent = new CustomEvent("closeStaggeredMenu");
+    const closeEvent = new CustomEvent('closeStaggeredMenu');
     window.dispatchEvent(closeEvent);
 
     // Smooth scroll ke section
-    const targetId = link.replace("#", "");
+    const targetId = link.replace('#', '');
     const element = document.getElementById(targetId);
 
     if (element) {
       const offset = 80; // Offset untuk header (dikurangi agar lebih akurat)
-      const elementPosition =
-        element.getBoundingClientRect().top + window.pageYOffset;
+      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
       const offsetPosition = elementPosition - offset;
 
       // Langsung scroll tanpa setTimeout
       window.scrollTo({
         top: offsetPosition,
-        behavior: "smooth",
+        behavior: 'smooth',
       });
     } else {
       console.warn(`Element with id "${targetId}" not found`);
@@ -35,34 +31,34 @@ function Navbar() {
 
   const menuItems = [
     {
-      label: "HOME",
-      link: "#home",
-      ariaLabel: "Navigate to home section",
+      label: 'HOME',
+      link: '#home',
+      ariaLabel: 'Navigate to home section',
       onClick: handleMenuItemClick,
     },
     {
-      label: "ABOUT",
-      link: "#about",
-      ariaLabel: "Navigate to about section",
+      label: 'ABOUT',
+      link: '#about',
+      ariaLabel: 'Navigate to about section',
       onClick: handleMenuItemClick,
     },
     {
-      label: "PROJECTS",
-      link: "#project",
-      ariaLabel: "Navigate to project section",
+      label: 'PROJECTS',
+      link: '#project',
+      ariaLabel: 'Navigate to project section',
       onClick: handleMenuItemClick,
     },
     {
-      label: "CERTIFS",
-      link: "#certificate",
-      ariaLabel: "Navigate to  section",
+      label: 'CERTIFS',
+      link: '#certificate',
+      ariaLabel: 'Navigate to  section',
       onClick: handleMenuItemClick,
     },
   ];
 
   const socialItems = [
-    { label: "GitHub", link: "https://github.com/yogamuz" },
-    { label: "LinkedIn", link: "https://linkedin.com/in/prayogo-" },
+    { label: 'GitHub', link: 'https://github.com/yogamuz' },
+    { label: 'LinkedIn', link: 'https://linkedin.com/in/prayogo-' },
     // { label: "Instagram", link: "https://instagram.com/yogamuz" },
   ];
 
@@ -81,9 +77,9 @@ function Navbar() {
             href="/Prayogo_CV.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block px-8 py-2.5 text-white border border-[#8a7fff] rounded font-medium text-sm tracking-wider hover:bg-[#8a7fff]/20 hover:border-[#7a6fee] transition-all duration-300 cursor-pointer select-none"
+            className="inline-block px-8 py-2.5 text-white border border-[#7DD3FC] rounded font-medium text-sm tracking-wider hover:bg-[#A7F3D0]/20 hover:border-[#7DD3FC] transition-all duration-300 cursor-pointer select-none"
             aria-label="Download CV"
-            style={{ pointerEvents: "auto" }}
+            style={{ pointerEvents: 'auto' }}
           >
             CV
           </a>
@@ -94,7 +90,7 @@ function Navbar() {
       <div className="fixed top-0 right-0 p-4 z-50">
         <StaggeredMenu
           position="right"
-          colors={["#1a1a2e", "#16213e", "#0f3460", "#533483"]}
+          colors={['#7DD3FC', '#5FBEEA', 'rgba(125, 211, 252, 0.4)', 'rgba(10, 30, 50, 0.9)']}
           items={menuItems}
           socialItems={socialItems}
           displaySocials={true}
@@ -103,7 +99,7 @@ function Navbar() {
           openMenuButtonColor="#000"
           changeMenuColorOnOpen={true}
           isFixed={true}
-          accentColor="#8b5cf6"
+          accentColor="#7DD3FC"
           closeOnClickAway={true}
         />
       </div>
