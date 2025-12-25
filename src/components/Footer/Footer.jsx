@@ -1,8 +1,6 @@
 import React from 'react';
 import HolographicSocial from '../HolographicSosial';
 export default function Footer() {
-
-
   return (
     <footer className="relative w-full overflow-hidden bg-transparent">
       {/* Fixed Left Social Media Bar - Desktop Only */}
@@ -36,9 +34,7 @@ export default function Footer() {
           target="_blank"
           rel="noopener noreferrer"
           onClick={(e) => {
-            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-              navigator.userAgent
-            );
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
             if (isMobile) {
               e.preventDefault();
               const gmailAppLink = `googlegmail://co?to=prayogo.dev@gmail.com`;
@@ -88,7 +84,9 @@ export default function Footer() {
 
           {/* Text */}
           <p className="text-gray-300 text-sm md:text-base whitespace-nowrap font-light tracking-wide">
-            Made with 💖 by <span className="text-cyan-400 font-normal">Prayogo</span>
+            Made with
+            <span className="text-cyan-400 font-normal"> React 💖 </span>
+            by <span className="text-secondary font-normal">Prayogo</span>
           </p>
 
           {/* Right Border (Horizontal with Gradient) */}
