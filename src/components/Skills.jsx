@@ -79,16 +79,16 @@ function createCenterNode(isVisible, skillsLength) {
         >
           <span
             className="
-  text-5xl font-bold px-8 py-8 whitespace-nowrap
-  text-transparent bg-clip-text
-  bg-gradient-to-br
-  from-[#7DD3FC]
-  via-[#5FBEEA]
-  to-[#1E3A5F]
-  rounded-xl
-  border-2 border-white/20
-  shadow-[0_0_40px_rgba(125,211,252,0.35)]
-"
+            text-5xl font-bold px-8 py-8 whitespace-nowrap
+            text-transparent bg-clip-text
+            bg-gradient-to-br
+            from-[#7DD3FC]
+            via-[#5FBEEA]
+            to-[#1E3A5F]
+            rounded-xl
+            border-2 border-white/20
+            shadow-[0_0_40px_rgba(125,211,252,0.35)]
+          "
           >
             Skills
           </span>

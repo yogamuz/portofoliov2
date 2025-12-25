@@ -14,30 +14,56 @@ function Tooltip({ text, children }) {
         {children}
       </div>
       {isVisible && (
-        <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 px-2 py-1 bg-gray-900 text-white text-xs rounded whitespace-nowrap z-10">
+        <div
+          className="
+  absolute top-full left-1/2 -translate-x-1/2 mt-2
+  px-2 py-1
+  bg-secondary/15
+  text-secondary
+  text-xs
+  rounded-lg
+  whitespace-nowrap
+  z-10
+  backdrop-blur-sm
+  border border-secondary/30
+  shadow-[0_0_20px_rgba(125,211,252,0.35)]
+"
+        >
           {text}
-          <div className="absolute bottom-full left-1/2 -translate-x-1/2 -mb-1 border-4 border-transparent border-b-gray-900"></div>
+          <div
+            className="
+      absolute bottom-full left-1/2 -translate-x-1/2 -mb-1
+      border-4 border-transparent
+      border-b-secondary/30
+    "
+          />
         </div>
       )}
     </div>
   );
 }
 
-function ProjectCard({
-  title,
-  description,
-  technologies,
-  githubUrl,
-  githubBackendUrl,
-  liveUrl,
-  type,
-  previewImage,
-  hoverImage,
-}) {
+function ProjectCard({ title, description, technologies, githubUrl, githubBackendUrl, liveUrl, type, previewImage, hoverImage }) {
   const hasMultipleRepos = githubUrl && githubBackendUrl;
 
   return (
-    <div className="relative bg-gradient-to-b from-black via-purple-950/10 to-black rounded-xl p-3 sm:p-4 shadow-md hover:shadow-2xl hover:shadow-purple-700/30 transition-all duration-300 h-full overflow-hidden border border-gray-800/50">
+    <div
+      className="
+  relative
+  bg-gradient-to-b
+  from-black
+  via-secondary/10
+  to-black
+  rounded-xl
+  p-3 sm:p-4
+  shadow-md
+  hover:shadow-[0_0_35px_rgba(125,211,252,0.35)]
+  transition-all duration-300
+  h-full
+  overflow-hidden
+  border border-secondary/30
+"
+    >
       {/* Grid 2 Kolom: Info Kiri, PixelTransition Kanan */}
       <div className="grid grid-cols-[1fr_auto] gap-3 sm:gap-4 h-full">
         {/* KOLOM KIRI - Info Project */}
@@ -51,24 +77,14 @@ function ProjectCard({
                 <>
                   {githubUrl && (
                     <Tooltip text="Frontend">
-                      <a
-                        href={githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="hover:text-white transition-colors duration-200"
-                      >
+                      <a href={githubUrl} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-200">
                         <Github className="w-3.5 h-3.5 sm:w-4 sm:h-4 cursor-pointer" />
                       </a>
                     </Tooltip>
                   )}
                   {githubBackendUrl && (
                     <Tooltip text="Backend">
-                      <a
-                        href={githubBackendUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="hover:text-cyan-400 transition-colors duration-200"
-                      >
+                      <a href={githubBackendUrl} target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400 transition-colors duration-200">
                         <Github className="w-3.5 h-3.5 sm:w-4 sm:h-4 cursor-pointer" />
                       </a>
                     </Tooltip>
@@ -76,12 +92,7 @@ function ProjectCard({
                 </>
               ) : (
                 githubUrl && (
-                  <a
-                    href={githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-cyan-400 transition-colors duration-200"
-                  >
+                  <a href={githubUrl} target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400 transition-colors duration-200">
                     <Github className="w-3.5 h-3.5 sm:w-4 sm:h-4 cursor-pointer" />
                   </a>
                 )
@@ -89,12 +100,7 @@ function ProjectCard({
 
               {/* Live URL */}
               {liveUrl && (
-                <a
-                  href={liveUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-cyan-400 transition-colors duration-200"
-                >
+                <a href={liveUrl} target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400 transition-colors duration-200">
                   <ExternalLink className="w-3.5 h-3.5 sm:w-4 sm:h-4 cursor-pointer" />
                 </a>
               )}
@@ -104,16 +110,12 @@ function ProjectCard({
           {/* Type Badge */}
           {type && (
             <div className="mb-1.5 sm:mb-2">
-              <span className="text-[10px] sm:text-xs font-mono text-gray-300 bg-purple-900/30 px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-full border border-purple-700/50">
-                {type}
-              </span>
+              <span className="text-[10px] sm:text-xs font-mono text-secondary bg-secondary/15 px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-full border border-secondary/40 shadow-[0_0_14px_rgba(125,211,252,0.35)]">{type}</span>
             </div>
           )}
 
           {/* Project Title */}
-          <h3 className="text-sm sm:text-base md:text-lg font-bold text-gray-100 mb-1.5 sm:mb-2 line-clamp-2">
-            {title}
-          </h3>
+          <h3 className="text-sm sm:text-base md:text-lg font-bold text-gray-100 mb-1.5 sm:mb-2 line-clamp-2">{title}</h3>
 
           {/* Project Description */}
           <p
@@ -137,12 +139,7 @@ line-clamp-3 sm:line-clamp-4"
         {/* KOLOM KANAN - PixelTransition Preview (SQUARE/KOTAK) */}
         <div className="flex items-center justify-center flex-shrink-0">
           {liveUrl && previewImage && (
-            <a
-              href={liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48"
-            >
+            <a href={liveUrl} target="_blank" rel="noopener noreferrer" className="block w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48">
               <PixelTransition
                 firstContent={
                   <LazyLoadImage
@@ -216,31 +213,25 @@ export default function Project() {
   const projects = [
     {
       title: 'ShopCart E-commerce',
-      description:
-        'A full-stack e-commerce application with shopping cart functionality, product management, and secure checkout process.',
+      description: 'A full-stack e-commerce application with shopping cart functionality, product management, and secure checkout process.',
       technologies: ['Vue JS', 'Tailwind CSS', 'Node JS', 'MongoDB'],
       githubUrl: 'https://github.com/yogamuz/shopcart',
       githubBackendUrl: 'https://github.com/yogamuz/shopserver',
       liveUrl: 'https://shopcarts1.netlify.app',
       type: 'Personal Project',
-      previewImage:
-        'https://res.cloudinary.com/dzfqsajp3/image/upload/w_400,f_auto,q_auto/v1764504309/banner-shopcart-laptop_epqkna.jpg',
-      hoverImage:
-        'https://res.cloudinary.com/dzfqsajp3/image/upload/w_400,f_auto,q_auto/v1764504382/banner-shopcart-mobile_jze1qq.jpg',
+      previewImage: 'https://res.cloudinary.com/dzfqsajp3/image/upload/w_400,f_auto,q_auto/v1764504309/banner-shopcart-laptop_epqkna.jpg',
+      hoverImage: 'https://res.cloudinary.com/dzfqsajp3/image/upload/w_400,f_auto,q_auto/v1764504382/banner-shopcart-mobile_jze1qq.jpg',
     },
     {
       title: 'Inventory Management System',
-      description:
-        'A simple yet functional inventory management system with product CRUD, stock tracking, daily sales overview, and Excel export for 7–30 day sales reports.',
+      description: 'A simple yet functional inventory management system with product CRUD, stock tracking, daily sales overview, and Excel export for 7–30 day sales reports.',
       technologies: ['React JS', 'Tailwind CSS', 'Node JS', 'MongoDB'],
       githubUrl: 'https://github.com/yogamuz/inventory-pos',
       githubBackendUrl: 'https://github.com/yogamuz/inventory-pos-server',
       liveUrl: 'https://bocimanager.netlify.app',
       type: 'Campus Project',
-      previewImage:
-        'https://res.cloudinary.com/dzfqsajp3/image/upload/v1764582853/laptop-boci_ldshpo.jpg',
-      hoverImage:
-        'https://res.cloudinary.com/dzfqsajp3/image/upload/v1764582853/mobile_boci_ycqpth.jpg',
+      previewImage: 'https://res.cloudinary.com/dzfqsajp3/image/upload/v1764582853/laptop-boci_ldshpo.jpg',
+      hoverImage: 'https://res.cloudinary.com/dzfqsajp3/image/upload/v1764582853/mobile_boci_ycqpth.jpg',
     },
   ];
 
@@ -249,12 +240,8 @@ export default function Project() {
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="mb-8 sm:mb-10 md:mb-12">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-main mb-4 text-center">
-            Projects
-          </h2>
-          <p className="text-secondary text-center max-w-2xl mx-auto text-sm sm:text-base">
-            A collection of projects I've built while learning and exploring web development.
-          </p>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-main mb-4 text-center">Projects</h2>
+          <p className="text-secondary text-center max-w-2xl mx-auto text-sm sm:text-base">A collection of projects I've built while learning and exploring web development.</p>
         </div>
 
         {/* Projects Grid - RESPONSIVE */}
