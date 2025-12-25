@@ -45,7 +45,7 @@ export default function Footer() {
               }, 1000);
             }
           }}
-          className="text-gray-400 hover:text-[#8a7fff] hover:-translate-y-1 transition-all duration-300 writing-mode-vertical"
+          className="text-gray-400 hover:text-[#7DD3FC] hover:-translate-y-1 transition-all duration-300 writing-mode-vertical"
           style={{ writingMode: 'vertical-rl' }}
           aria-label="Email"
         >

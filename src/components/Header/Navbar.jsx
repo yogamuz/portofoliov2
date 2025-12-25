@@ -43,7 +43,7 @@ function Navbar() {
       onClick: handleMenuItemClick,
     },
     {
-      label: 'PROJECTS',
+      label: 'PROJECTs',
       link: '#project',
       ariaLabel: 'Navigate to project section',
       onClick: handleMenuItemClick,
@@ -51,7 +51,7 @@ function Navbar() {
     {
       label: 'CERTIFS',
       link: '#certificate',
-      ariaLabel: 'Navigate to  section',
+      ariaLabel: 'Navigate to certificate section',
       onClick: handleMenuItemClick,
     },
   ];
@@ -95,11 +95,11 @@ function Navbar() {
           socialItems={socialItems}
           displaySocials={true}
           displayItemNumbering={true}
-          menuButtonColor="#fff"
-          openMenuButtonColor="#000"
+          menuButtonColor="#7DD3FC"
+          openMenuButtonColor="#7DD3FC"
+          accentColor="#7DD3FC"
           changeMenuColorOnOpen={true}
           isFixed={true}
-          accentColor="#7DD3FC"
           closeOnClickAway={true}
         />
       </div>
