@@ -55,21 +55,22 @@ function ProjectCard({ title, description, technologies, githubUrl, githubBacken
   return (
     <div
       className="
-        relative
-        bg-gradient-to-b
-        from-black
-        via-secondary/10
-        to-black
-        rounded-xl
-        shadow-md
-        hover:shadow-[0_0_35px_rgba(125,211,252,0.35)]
-        transition-all duration-300
-        overflow-hidden
-        border border-secondary/30
-      "
+    relative
+    bg-gradient-to-b
+    from-black
+    via-secondary/10
+    to-black
+    rounded-xl
+    shadow-md
+    hover:shadow-[0_0_35px_rgba(125,211,252,0.35)]
+    transition-all duration-300
+    overflow-hidden
+    border border-secondary/30
+    h-full
+  "
     >
       {/* Grid Layout: Info Kiri | Image Kanan */}
-      <div className="grid grid-cols-[1fr_auto] h-full">
+      <div className="grid grid-cols-1 sm:grid-cols-[1fr_auto] h-full">
         {/* KOLOM KIRI - Info Project */}
         <div className="p-3 sm:p-4 flex flex-col min-w-0">
           {/* Header: Folder Icon & Action Icons */}
@@ -206,19 +207,20 @@ function ProjectCard({ title, description, technologies, githubUrl, githubBacken
 
         {/* KOLOM KANAN - Image Preview (FULL HEIGHT) */}
         {liveUrl && previewImage && (
-          <div className="w-40 sm:w-48 md:w-56 lg:w-64 flex-shrink-0">
-            <a href={liveUrl} target="_blank" rel="noopener noreferrer" className="block h-full">
+          <div className="w-full h-64 sm:w-40 sm:h-full md:w-48 lg:w-56 xl:w-64 flex-shrink-0 order-first sm:order-last bg-black">
+            <a href={liveUrl} target="_blank" rel="noopener noreferrer" className="block w-full h-full">
               <PixelTransition
                 firstContent={
                   <LazyLoadImage
                     src={previewImage}
                     alt={`${title} preview`}
                     effect="blur"
+                    className="w-full h-full"
                     style={{
-                      width: '100%',
-                      height: '100%',
                       objectFit: 'cover',
+                      objectPosition: 'center center',
                     }}
+                    wrapperClassName="w-full h-full block"
                   />
                 }
                 secondContent={
@@ -231,6 +233,7 @@ function ProjectCard({ title, description, technologies, githubUrl, githubBacken
                         width: '100%',
                         height: '100%',
                         objectFit: 'cover',
+                        objectPosition: 'center',
                       }}
                     />
                   ) : (
@@ -265,8 +268,11 @@ function ProjectCard({ title, description, technologies, githubUrl, githubBacken
                   width: '100%',
                   height: '100%',
                   borderTopRightRadius: '12px',
-                  borderBottomRightRadius: '12px',
+                  borderBottomRightRadius: '0px',
+                  borderTopLeftRadius: '12px',
+                  borderBottomLeftRadius: '0px',
                 }}
+                className="sm:!rounded-l-none sm:!rounded-r-xl sm:!rounded-tl-none"
               />
             </a>
           </div>
