@@ -9,20 +9,25 @@ export default function Certificate() {
   const [isCollapsing, setIsCollapsing] = useState(false);
   const certificateSectionRef = useRef(null);
   const [isTransitioning, setIsTransitioning] = useState(false);
-  const [slideDirection, setSlideDirection] = useState('right');
+  const [slideDirection, setSlideDirection] = useState('left');
   const [activeSubCategory, setActiveSubCategory] = useState('All');
+
+  const [isInitialLoad, setIsInitialLoad] = useState(true);
 
   useEffect(() => {
     setVisibleCount(4);
-    // Reset transition setelah animasi enter selesai
     if (isTransitioning) {
       const timer = setTimeout(() => {
         setIsTransitioning(false);
-      });
-
+      }, 300);
       return () => clearTimeout(timer);
     }
-  }, [activeCategory]);
+
+    // Set initial load selesai setelah mount
+    if (isInitialLoad) {
+      setTimeout(() => setIsInitialLoad(false), 100);
+    }
+  }, [activeCategory, isTransitioning]);
 
   const handleCategoryChange = (category) => {
     if (category === activeCategory || isTransitioning) return;
@@ -33,7 +38,7 @@ export default function Certificate() {
 
     setSlideDirection(nextIndex > currentIndex ? 'right' : 'left');
     setIsTransitioning(true);
-    setActiveSubCategory('All'); // Reset sub-category saat ganti main category
+    setActiveSubCategory('All');
 
     setTimeout(() => {
       setActiveCategory(category);
@@ -304,6 +309,8 @@ export default function Certificate() {
               style={{
                 animation: isTransitioning
                   ? `slideOut${slideDirection === 'right' ? 'ToLeft' : 'ToRight'} 0.3s ease-out forwards`
+                  : isInitialLoad
+                  ? 'none' // ← Tidak ada animasi saat pertama load
                   : `slideInFrom${slideDirection === 'right' ? 'Right' : 'Left'} 0.5s ease-out forwards`,
               }}
             >
