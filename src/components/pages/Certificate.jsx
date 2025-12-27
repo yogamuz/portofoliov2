@@ -1,6 +1,9 @@
 // components/Certificate/index.jsx
 import { useState, useEffect, useRef } from 'react';
+import { FaHtml5, FaCss3Alt, FaGitAlt, FaJs, FaVuejs, FaReact, FaNodeJs, FaLaravel, FaServer } from 'react-icons/fa';
+import { SiMongodb } from 'react-icons/si';
 import CertificateCard from '../Certificate/CertificateCard';
+import certificates from '@/components/certificates.json';
 import '../Certificate/Styles';
 
 export default function Certificate() {
@@ -10,7 +13,7 @@ export default function Certificate() {
   const certificateSectionRef = useRef(null);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [slideDirection, setSlideDirection] = useState('left');
-  const [activeSubCategory, setActiveSubCategory] = useState('All');
+  const [activeSubCategory, setActiveSubCategory] = useState('HTML/CSS');
 
   const [isInitialLoad, setIsInitialLoad] = useState(true);
 
@@ -38,7 +41,7 @@ export default function Certificate() {
 
     setSlideDirection(nextIndex > currentIndex ? 'right' : 'left');
     setIsTransitioning(true);
-    setActiveSubCategory('All');
+    setActiveSubCategory('HTML/CSS'); 
 
     setTimeout(() => {
       setActiveCategory(category);
@@ -49,81 +52,45 @@ export default function Certificate() {
     setActiveSubCategory(subCategory);
     setVisibleCount(4); // Reset visible count saat ganti filter
   };
-  const certificates = {
-    Programming: [
-      {
-        category: 'HTML/CSS',
-        caption: 'HTML',
-        certificateUrl: 'https://res.cloudinary.com/dzfqsajp3/image/upload/v1766565626/HTML_xzumar.png',
-        certificateImage: 'https://res.cloudinary.com/dzfqsajp3/image/upload/w_600,f_auto,q_auto/v1766565626/HTML_xzumar.png',
-        shadowColor: '#E34F26',
-      },
-      {
-        category: 'HTML/CSS',
-        caption: 'CSS',
-        certificateUrl: 'https://res.cloudinary.com/dzfqsajp3/image/upload/v1766564791/CSS_innhzm.png',
-        certificateImage: 'https://res.cloudinary.com/dzfqsajp3/image/upload/w_600,f_auto,q_auto/v1766564791/CSS_innhzm.png',
-        shadowColor: '#1572B6',
-      },
-      {
-        category: 'Git',
-        caption: 'GIT',
-        certificateUrl: 'https://res.cloudinary.com/dzfqsajp3/image/upload/v1766564324/git1_ukkcnq.png',
-        certificateImage: 'https://res.cloudinary.com/dzfqsajp3/image/upload/w_600,f_auto,q_auto/v1766564324/git1_ukkcnq.png',
-        shadowColor: '#F05032',
-      },
-      {
-        category: 'Git',
-        caption: 'GIT II',
-        certificateUrl: 'https://res.cloudinary.com/dzfqsajp3/image/upload/v1766564324/git2_tjuyfv.png',
-        certificateImage: 'https://res.cloudinary.com/dzfqsajp3/image/upload/w_600,f_auto,q_auto/v1766564324/git2_tjuyfv.png',
-        shadowColor: '#F05032',
-      },
-      {
-        category: 'Git',
-        caption: 'TERMINAL ',
-        certificateUrl: 'https://res.cloudinary.com/dzfqsajp3/image/upload/v1766564324/git2_tjuyfv.png',
-        certificateImage: 'https://res.cloudinary.com/dzfqsajp3/image/upload/w_600,f_auto,q_auto/v1766564324/git2_tjuyfv.png',
-        shadowColor: '#0F2544',
-      },
-      {
-        category: 'JavaScript',
-        caption: 'BASIC JS',
-        certificateUrl: 'https://res.cloudinary.com/dzfqsajp3/image/upload/v1766564839/BASIC_JS_etzf6h.png',
-        certificateImage: 'https://res.cloudinary.com/dzfqsajp3/image/upload/w_600,f_auto,q_auto/v1766564839/BASIC_JS_etzf6h.png',
-        shadowColor: '#F7DF1E',
-      },
-      {
-        category: 'JavaScript',
-        caption: 'JS OOP',
-        certificateUrl: 'https://res.cloudinary.com/dzfqsajp3/image/upload/v1766564889/OOP_JS_ktlgeo.png',
-        certificateImage: 'https://res.cloudinary.com/dzfqsajp3/image/upload/w_600,f_auto,q_auto/v1766564889/OOP_JS_ktlgeo.png',
-        shadowColor: '#F7DF1E',
-      },
 
-      {
-        category: 'JavaScript',
-        caption: 'JS AJAX & WEB API',
-        certificateUrl: 'https://res.cloudinary.com/dzfqsajp3/image/upload/v1766564987/JS_AJAX_WEBAPI_bsxbzp.png',
-        certificateImage: 'https://res.cloudinary.com/dzfqsajp3/image/upload/w_600,f_auto,q_auto/v1766564987/JS_AJAX_WEBAPI_bsxbzp.png',
-        shadowColor: '#F7DF1E',
-      },
-    ],
-    TOEFL: [],
+  const categoryColors = {
+    'HTML/CSS': '#E34F26',
+    Git: '#F05032',
+    'JavaScript Basic': '#F7DF1E',
+    'Vue.js': '#42B883',
+    React: '#61DAFB',
+    'Node.js': '#339933',
+    'Express.js': '#000000',
+    MongoDB: '#47A248',
+    Laravel: '#FF2D20',
   };
+
+  const categoryIcons = {
+    'HTML/CSS': FaHtml5,
+    Git: FaGitAlt,
+    'JavaScript Basic': FaJs,
+    'Vue.js': FaVuejs,
+    React: FaReact,
+    'Node.js': FaNodeJs,
+    MongoDB: SiMongodb,
+    Laravel: FaLaravel,
+  };
+
   const getSubCategories = () => {
     if (activeCategory !== 'Programming') return [];
-    const categories = ['All', ...new Set(certificates.Programming.map((cert) => cert.category))];
+    const categories = [...new Set(certificates.certificates.Programming.map((cert) => cert.category))];
     return categories;
   };
-  const getFilteredCertificates = () => {
-    if (activeCategory !== 'Programming') return certificates[activeCategory];
-    if (activeSubCategory === 'All') return certificates.Programming;
-    return certificates.Programming.filter((cert) => cert.category === activeSubCategory);
-  };
 
-  // KODE RETURN YANG SUDAH BENAR - Copy paste mulai dari sini:
-  // KODE RETURN YANG SUDAH BENAR - Copy paste mulai dari sini:
+  const getFilteredCertificates = () => {
+    let filtered;
+    if (activeCategory !== 'Programming') {
+      filtered = certificates.certificates[activeCategory];
+    } else {
+      filtered = certificates.certificates.Programming.filter((cert) => cert.category === activeSubCategory);
+    }
+    return filtered.filter((cert) => cert.certificateImage && cert.certificateUrl);
+  };
 
   return (
     <>
@@ -278,27 +245,41 @@ export default function Certificate() {
                 </button>
               </div>
             </div>
-
             {/* Chip Filter - Sub Categories */}
             {activeCategory === 'Programming' && (
-              <div className="flex justify-center items-center gap-2 mt-4 flex-wrap px-4">
-                {getSubCategories().map((subCat) => (
-                  <button
-                    key={subCat}
-                    onClick={() => handleSubCategoryChange(subCat)}
-                    className="px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-300"
-                    style={{
-                      background: activeSubCategory === subCat ? 'rgba(107, 124, 255, 0.2)' : 'rgba(15, 31, 58, 0.2)',
-                      border: activeSubCategory === subCat ? '1px solid rgba(125, 211, 252, 0.4)' : '1px solid rgba(107, 124, 255, 0.1)',
-                      color: activeSubCategory === subCat ? '#7DD3FC' : '#8A94B8',
-                      backdropFilter: 'blur(8px)',
-                      WebkitBackdropFilter: 'blur(8px)',
-                      boxShadow: activeSubCategory === subCat ? '0 0 15px rgba(125, 211, 252, 0.2)' : 'none',
-                    }}
-                  >
-                    {subCat}
-                  </button>
-                ))}
+              <div className="flex justify-center items-center gap-3 mt-4 flex-wrap px-4">
+                {getSubCategories().map((subCat) => {
+                  const isActive = activeSubCategory === subCat;
+                  const chipColor = categoryColors[subCat] || '#7DD3FC';
+                  const IconComponent = categoryIcons[subCat];
+
+                  return (
+                    <button
+                      key={subCat}
+                      onClick={() => handleSubCategoryChange(subCat)}
+                      className="rounded-full transition-all duration-300 flex items-center justify-center"
+                      style={{
+                        width: '40px',
+                        height: '40px',
+                        background: isActive ? 'rgba(107, 124, 255, 0.2)' : 'rgba(15, 31, 58, 0.2)',
+                        border: isActive ? `2px solid ${chipColor}` : '2px solid rgba(107, 124, 255, 0.1)',
+                        backdropFilter: 'blur(8px)',
+                        WebkitBackdropFilter: 'blur(8px)',
+                        boxShadow: isActive ? `0 0 20px ${chipColor}50` : 'none',
+                      }}
+                      title={subCat}
+                    >
+                      {IconComponent && (
+                        <IconComponent
+                          style={{
+                            color: isActive ? chipColor : '#8A94B8',
+                            fontSize: '1.5rem',
+                          }}
+                        />
+                      )}
+                    </button>
+                  );
+                })}
               </div>
             )}
           </div>
@@ -317,25 +298,30 @@ export default function Certificate() {
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
                 {getFilteredCertificates()
                   .slice(0, visibleCount)
-                  .map((certificate, index) => (
-                    <div
-                      key={index}
-                      style={{
-                        animation: isCollapsing ? `slideUp 0.3s ease-out forwards` : `slideDown 0.5s ease-out forwards`,
-                        animationDelay: isCollapsing
-                          ? `${(getFilteredCertificates().slice(0, visibleCount).length - 1 - index) * 0.05}s`
-                          : `${(index % 4) * 0.1}s`,
-                        opacity: isCollapsing ? 1 : 0,
-                      }}
-                    >
-                      <CertificateCard
-                        caption={certificate.caption}
-                        certificateUrl={certificate.certificateUrl}
-                        certificateImage={certificate.certificateImage}
-                        shadowColor={certificate.shadowColor}
-                      />
-                    </div>
-                  ))}
+                  .map((certificate, index) => {
+                    const IconComponent = categoryIcons[certificate.category];
+
+                    return (
+                      <div
+                        key={index}
+                        style={{
+                          animation: isCollapsing ? `slideUp 0.3s ease-out forwards` : `slideDown 0.5s ease-out forwards`,
+                          animationDelay: isCollapsing
+                            ? `${(getFilteredCertificates().slice(0, visibleCount).length - 1 - index) * 0.05}s`
+                            : `${(index % 4) * 0.1}s`,
+                          opacity: isCollapsing ? 1 : 0,
+                        }}
+                      >
+                        <CertificateCard
+                          caption={certificate.caption}
+                          certificateUrl={certificate.certificateUrl}
+                          certificateImage={certificate.certificateImage}
+                          shadowColor={certificate.shadowColor}
+                          Icon={IconComponent}
+                        />
+                      </div>
+                    );
+                  })}
               </div>
 
               {getFilteredCertificates().length > 4 && (
@@ -395,7 +381,14 @@ export default function Certificate() {
               }}
             >
               <div className="text-center">
-                <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-secondary mb-2">Coming Soon</p>
+                <p
+                  className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2"
+                  style={{
+                    color: activeSubCategory === 'Laravel' ? '#FF2D20' : '#38BDF8',
+                  }}
+                >
+                  Coming Soon
+                </p>
               </div>
             </div>
           )}

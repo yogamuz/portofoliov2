@@ -7,8 +7,8 @@ import Tooltip from './Tooltip';
 export default function CertificateCard({ caption, certificateUrl, certificateImage, shadowColor }) {
   return (
     <div className="group relative flex flex-col items-center">
-      
-      <a  href={certificateUrl}
+      <a
+        href={certificateUrl}
         target="_blank"
         rel="noopener noreferrer"
         className="relative block w-full aspect-[4/3] rounded-lg overflow-hidden border-2 border-gray-700/50 hover:border-gray-600 transition-all duration-300"
