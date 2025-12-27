@@ -1,11 +1,35 @@
 import { Folder, Github, ExternalLink } from 'lucide-react';
 import { useState } from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { FaHtml5, FaCss3Alt, FaGitAlt, FaJs, FaVuejs, FaReact, FaNodeJs } from 'react-icons/fa';
+import { SiMongodb, SiTailwindcss } from 'react-icons/si';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import PixelTransition from '@/components/PixelTransition';
 
-// Tooltip Component
-function Tooltip({ text, children }) {
+const techIcons = {
+  HTML: FaHtml5,
+  CSS: FaCss3Alt,
+  Git: FaGitAlt,
+  JavaScript: FaJs,
+  'Vue JS': FaVuejs,
+  'React JS': FaReact,
+  'Node JS': FaNodeJs,
+  MongoDB: SiMongodb,
+  'Tailwind CSS': SiTailwindcss,
+};
+
+const techColors = {
+  HTML: '#E34F26',
+  CSS: '#1572B6',
+  Git: '#F05032',
+  JavaScript: '#F7DF1E',
+  'Vue JS': '#42B883',
+  'React JS': '#61DAFB',
+  'Node JS': '#339933',
+  MongoDB: '#47A248',
+  'Tailwind CSS': '#06B6D4',
+};
+function Tooltip({ text, children, position = 'bottom' }) {
   const [isVisible, setIsVisible] = useState(false);
 
   return (
@@ -14,37 +38,73 @@ function Tooltip({ text, children }) {
         {children}
       </div>
       {isVisible && (
-        <div
-          className="
-  absolute top-full left-1/2 -translate-x-1/2 mt-2
-  px-2 py-1
-  bg-secondary/15
-  text-secondary
-  text-xs
-  rounded-lg
-  whitespace-nowrap
-  z-10
-  backdrop-blur-sm
-  border border-secondary/30
-  shadow-[0_0_20px_rgba(125,211,252,0.35)]
-"
-        >
-          {text}
-          <div
-            className="
-      absolute bottom-full left-1/2 -translate-x-1/2 -mb-1
-      border-4 border-transparent
-      border-b-secondary/30
-    "
-          />
-        </div>
+        <>
+          {position === 'top' ? (
+            <div
+              className="
+                absolute bottom-full left-1/2 -translate-x-1/2 mb-2
+                px-2 py-1
+                bg-secondary/15
+                text-secondary
+                text-xs
+                rounded-lg
+                whitespace-nowrap
+                z-10
+                backdrop-blur-sm
+                border border-secondary/30
+                shadow-[0_0_20px_rgba(125,211,252,0.35)]
+                transition-opacity duration-200
+              "
+              style={{
+                opacity: 1,
+              }}
+            >
+              {text}
+              {/* Arrow pointing down */}
+              <div
+                className="
+                  absolute top-full left-1/2 -translate-x-1/2 -mt-1
+                  border-4 border-transparent
+                  border-t-secondary/30
+                "
+              />
+            </div>
+          ) : (
+            <div
+              className="
+                absolute top-full left-1/2 -translate-x-1/2 mt-2
+                px-2 py-1
+                bg-secondary/15
+                text-secondary
+                text-xs
+                rounded-lg
+                whitespace-nowrap
+                z-10
+                backdrop-blur-sm
+                border border-secondary/30
+                shadow-[0_0_20px_rgba(125,211,252,0.35)]
+                transition-opacity duration-200
+              "
+              style={{
+                opacity: 1,
+              }}
+            >
+              {text}
+              {/* Arrow pointing up */}
+              <div
+                className="
+                  absolute bottom-full left-1/2 -translate-x-1/2 -mb-1
+                  border-4 border-transparent
+                  border-b-secondary/30
+                "
+              />
+            </div>
+          )}
+        </>
       )}
     </div>
   );
 }
-
-// GANTI function ProjectCard dengan kode ini:
-
 function ProjectCard({ title, description, technologies, githubUrl, githubBackendUrl, liveUrl, type, previewImage, hoverImage }) {
   const hasMultipleRepos = githubUrl && githubBackendUrl;
   const [isExpanded, setIsExpanded] = useState(false);
@@ -183,12 +243,37 @@ function ProjectCard({ title, description, technologies, githubUrl, githubBacken
 
                   <p className="text-gray-300 text-sm leading-relaxed text-justify mb-4">{description}</p>
 
-                  <div className="flex flex-wrap gap-2 text-xs text-gray-500 font-mono">
-                    {technologies.map((tech, index) => (
-                      <span key={index} className="hover:text-cyan-400 transition-colors">
-                        {tech}
-                      </span>
-                    ))}
+                  <div className="flex flex-wrap gap-3 mt-4">
+                    {technologies.map((tech, index) => {
+                      const IconComponent = techIcons[tech];
+                      const techColor = techColors[tech] || '#7DD3FC';
+
+                      return (
+                        <div key={index} className="relative">
+                          <div
+                            className="rounded-full transition-all duration-300 flex items-center justify-center"
+                            style={{
+                              width: '36px',
+                              height: '36px',
+                              background: 'rgba(15, 31, 58, 0.3)',
+                              border: `2px solid ${techColor}`,
+                              backdropFilter: 'blur(8px)',
+                              WebkitBackdropFilter: 'blur(8px)',
+                              boxShadow: `0 0 15px ${techColor}40`,
+                            }}
+                          >
+                            {IconComponent && (
+                              <IconComponent
+                                style={{
+                                  color: techColor,
+                                  fontSize: '1.35rem',
+                                }}
+                              />
+                            )}
+                          </div>
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
               </div>
@@ -196,12 +281,64 @@ function ProjectCard({ title, description, technologies, githubUrl, githubBacken
           </div>
 
           {/* Technologies Used */}
-          <div className="flex flex-wrap gap-1.5 sm:gap-2 text-[10px] sm:text-xs text-gray-500 font-mono mt-auto">
-            {technologies.map((tech, index) => (
-              <span key={index} className="hover:text-cyan-400 transition-colors duration-200">
-                {tech}
-              </span>
-            ))}
+          <div className="flex flex-wrap gap-2 sm:gap-3 mt-auto">
+            {technologies.map((tech, index) => {
+              const IconComponent = techIcons[tech];
+              const techColor = techColors[tech] || '#7DD3FC';
+
+              return (
+                <Tooltip key={index} text={tech} position="top">
+                  <div
+                    className="relative group cursor-pointer transition-all duration-300"
+                    style={{
+                      transform: 'translateY(0)',
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = 'translateY(-4px)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = 'translateY(0)';
+                    }}
+                  >
+                    <div
+                      className="rounded-full transition-all duration-300 flex items-center justify-center"
+                      style={{
+                        width: '32px',
+                        height: '32px',
+                        background: 'rgba(15, 31, 58, 0.2)',
+                        border: '2px solid rgba(107, 124, 255, 0.1)',
+                        backdropFilter: 'blur(8px)',
+                        WebkitBackdropFilter: 'blur(8px)',
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.border = `2px solid ${techColor}`;
+                        e.currentTarget.style.boxShadow = `0 0 20px ${techColor}50`;
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.border = '2px solid rgba(107, 124, 255, 0.1)';
+                        e.currentTarget.style.boxShadow = 'none';
+                      }}
+                    >
+                      {IconComponent && (
+                        <IconComponent
+                          className="transition-colors duration-300"
+                          style={{
+                            color: '#8A94B8',
+                            fontSize: '1.25rem',
+                          }}
+                          onMouseEnter={(e) => {
+                            e.currentTarget.style.color = techColor;
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.color = '#8A94B8';
+                          }}
+                        />
+                      )}
+                    </div>
+                  </div>
+                </Tooltip>
+              );
+            })}
           </div>
         </div>
 
@@ -303,7 +440,7 @@ export default function Project() {
     {
       title: 'Inventory Management System',
       description:
-        'A simple yet functional inventory management system with product CRUD, stock tracking, daily sales overview, and Excel export for 7–30 day sales reports.',
+        'A simple yet functional inventory management system with product CRUD, stock tracking, daily sales overview, and Excel export for 7–30 day sales reports. ',
       technologies: ['React JS', 'Tailwind CSS', 'Node JS', 'MongoDB'],
       githubUrl: 'https://github.com/yogamuz/inventory-pos',
       githubBackendUrl: 'https://github.com/yogamuz/inventory-pos-server',

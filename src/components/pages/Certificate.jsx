@@ -246,41 +246,41 @@ export default function Certificate() {
               </div>
             </div>
             {/* Chip Filter - Sub Categories */}
-{activeCategory === 'Programming' && (
-  <div className="flex justify-center items-center gap-3 mt-4 flex-wrap px-4">
-    {getSubCategories().map((subCat) => {
-      const isActive = activeSubCategory === subCat;
-      const chipColor = categoryColors[subCat] || '#7DD3FC';
-      const IconComponent = categoryIcons[subCat];
+            {activeCategory === 'Programming' && (
+              <div className="flex justify-center items-center gap-3 mt-4 flex-wrap px-4">
+                {getSubCategories().map((subCat) => {
+                  const isActive = activeSubCategory === subCat;
+                  const chipColor = categoryColors[subCat] || '#7DD3FC';
+                  const IconComponent = categoryIcons[subCat];
 
-      return (
-        <div key={subCat} className="relative group">
-          <button
-            onClick={() => handleSubCategoryChange(subCat)}
-            className="rounded-full transition-all duration-300 flex items-center justify-center"
-            style={{
-              width: '40px',
-              height: '40px',
-              background: isActive ? 'rgba(107, 124, 255, 0.2)' : 'rgba(15, 31, 58, 0.2)',
-              border: isActive ? `2px solid ${chipColor}` : '2px solid rgba(107, 124, 255, 0.1)',
-              backdropFilter: 'blur(8px)',
-              WebkitBackdropFilter: 'blur(8px)',
-              boxShadow: isActive ? `0 0 20px ${chipColor}50` : 'none',
-            }}
-          >
-            {IconComponent && (
-              <IconComponent
-                style={{
-                  color: isActive ? chipColor : '#8A94B8',
-                  fontSize: '1.5rem',
-                }}
-              />
-            )}
-          </button>
-          
-          {/* Tooltip - Sama seperti Project.jsx */}
-          <div
-            className="
+                  return (
+                    <div key={subCat} className="relative group">
+                      <button
+                        onClick={() => handleSubCategoryChange(subCat)}
+                        className="rounded-full transition-all duration-300 flex items-center justify-center"
+                        style={{
+                          width: '40px',
+                          height: '40px',
+                          background: isActive ? 'rgba(107, 124, 255, 0.2)' : 'rgba(15, 31, 58, 0.2)',
+                          border: isActive ? `2px solid ${chipColor}` : '2px solid rgba(107, 124, 255, 0.1)',
+                          backdropFilter: 'blur(8px)',
+                          WebkitBackdropFilter: 'blur(8px)',
+                          boxShadow: isActive ? `0 0 20px ${chipColor}50` : 'none',
+                        }}
+                      >
+                        {IconComponent && (
+                          <IconComponent
+                            style={{
+                              color: isActive ? chipColor : '#8A94B8',
+                              fontSize: '1.5rem',
+                            }}
+                          />
+                        )}
+                      </button>
+
+                      {/* Tooltip - Sama seperti Project.jsx */}
+                      <div
+                        className="
               absolute top-full left-1/2 -translate-x-1/2 mt-2
               px-2 py-1
               bg-secondary/15
@@ -296,22 +296,22 @@ export default function Certificate() {
               transition-opacity duration-200
               pointer-events-none
             "
-          >
-            {subCat}
-            {/* Arrow */}
-            <div
-              className="
+                      >
+                        {subCat}
+                        {/* Arrow */}
+                        <div
+                          className="
                 absolute bottom-full left-1/2 -translate-x-1/2 -mb-1
                 border-4 border-transparent
                 border-b-secondary/30
               "
-            />
-          </div>
-        </div>
-      );
-    })}
-  </div>
-)}
+                        />
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            )}
           </div>
 
           {getFilteredCertificates().length > 0 ? (
@@ -321,7 +321,7 @@ export default function Certificate() {
                 animation: isTransitioning
                   ? `slideOut${slideDirection === 'right' ? 'ToLeft' : 'ToRight'} 0.3s ease-out forwards`
                   : isInitialLoad
-                  ? 'none' // 
+                  ? 'none' //
                   : `slideInFrom${slideDirection === 'right' ? 'Right' : 'Left'} 0.5s ease-out forwards`,
               }}
             >
