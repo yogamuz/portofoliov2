@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { FaVuejs, FaNodeJs, FaGithub, FaReact, FaLaravel } from 'react-icons/fa';
 import { SiTailwindcss, SiMongodb, SiPostman, SiClaude, SiMysql, SiPostgresql, SiGit } from 'react-icons/si';
+import { Layers } from 'lucide-react';
 import { ReactFlow, Background } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 
@@ -9,14 +10,18 @@ function createSkillsNodes(skills, isVisible) {
   return skills.map((skill, index) => ({
     id: `skill-${index}`,
     type: 'default',
-    position: { x: -500, y: 30 + index * 140 },
+    position: { x: -500, y: 0 + index * 140 },
     data: {
       label: (
         <div
           className={`flex flex-col items-center gap-1 transition-all duration-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
           style={{ transitionDelay: `${index * 150}ms`, pointerEvents: 'auto' }}
         >
-          <skill.icon className={`lg:text-8xl md:text-8xl sm:text-7xl text-gray-300 transition-colors duration-300 flex-shrink-0 ${skill.hoverColor || 'hover:text-white'}`} />
+          <skill.icon
+            className={`lg:text-8xl md:text-8xl sm:text-7xl text-gray-300 transition-colors duration-300 flex-shrink-0 ${
+              skill.hoverColor || 'hover:text-white'
+            }`}
+          />
           <span className="text-2xl text-gray-300 font-medium text-center whitespace-pre-line leading-tight">{skill.name}</span>
         </div>
       ),
@@ -36,7 +41,7 @@ function createToolsNodes(tools, isVisible, skillsLength) {
   return tools.map((tool, index) => ({
     id: `tool-${index}`,
     type: 'default',
-    position: { x: 1250, y: 30 + index * 140 }, // ← ubah dari y: 50 + index * 100 ke y: 30 + index * 120
+    position: { x: 1250, y: 0 + index * 140 },
     data: {
       label: (
         <div
@@ -47,7 +52,11 @@ function createToolsNodes(tools, isVisible, skillsLength) {
           }}
         >
           {tool.icon ? (
-            <tool.icon className={`lg:text-8xl md:text-8xl sm:text-7xl text-gray-300 transition-colors duration-300 flex-shrink-0 ${tool.hoverColor || 'hover:text-white'}`} />
+            <tool.icon
+              className={`lg:text-8xl md:text-8xl sm:text-7xl text-gray-300 transition-colors duration-300 flex-shrink-0 ${
+                tool.hoverColor || 'hover:text-white'
+              }`}
+            />
           ) : (
             <img src={tool.iconUrl} alt={tool.name} className="w-16 h-16 flex-shrink-0 hover:opacity-80 transition-opacity duration-300" />
           )}
@@ -66,32 +75,24 @@ function createToolsNodes(tools, isVisible, skillsLength) {
 }
 
 // Function untuk membuat center node
+// Function untuk membuat center node
 function createCenterNode(isVisible, skillsLength) {
   return {
     id: 'tech-stack',
     type: 'default',
-    position: { x: 380, y: 30 + (skillsLength * 140) / 2 - 60 }, // Adjusted Y position untuk node lebih besar
+    position: {
+      x: 400,
+      y: 0 + (skillsLength * 140) / 2 - 70,
+    },
     data: {
       label: (
         <div
-          className={`flex items-center justify-center transition-all duration-700 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'}`}
+          className={`flex flex-col items-center gap-2 transition-all duration-700 ${
+            isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'
+          }`}
           style={{ transitionDelay: `${skillsLength * 150}ms` }}
         >
-          <span
-            className="
-            text-5xl font-bold px-8 py-8 whitespace-nowrap
-            text-transparent bg-clip-text
-            bg-gradient-to-br
-            from-[#7DD3FC]
-            via-[#5FBEEA]
-            to-[#1E3A5F]
-            rounded-xl
-            border-2 border-white/20
-            shadow-[0_0_40px_rgba(125,211,252,0.35)]
-          "
-          >
-            Skills
-          </span>
+          <Layers className="w-30 h-30 text-sky-300" />
         </div>
       ),
     },
@@ -99,8 +100,8 @@ function createCenterNode(isVisible, skillsLength) {
       background: 'transparent',
       border: 'none',
       padding: 0,
-      width: 200,
-      height: 120,
+      width: 120,
+      height: 135,
     },
     sourcePosition: 'right',
     targetPosition: 'left',
@@ -137,9 +138,14 @@ function createMobileSkillsNodes(skills, isVisible) {
     position: { x: 100, y: 20 + index * 65 },
     data: {
       label: (
-        <div className={`flex items-center gap-3 transition-all duration-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`} style={{ transitionDelay: `${index * 100}ms` }}>
+        <div
+          className={`flex items-center gap-3 transition-all duration-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+          style={{ transitionDelay: `${index * 100}ms` }}
+        >
           <skill.icon
-            className={`${skill.name === 'Tailwind CSS' || skill.name === 'MongoDB' ? 'text-2xl' : 'text-3xl'} text-gray-300 hover:text-white transition-colors duration-300 flex-shrink-0`}
+            className={`${
+              skill.name === 'Tailwind CSS' || skill.name === 'MongoDB' ? 'text-2xl' : 'text-3xl'
+            } text-gray-300 hover:text-white transition-colors duration-300 flex-shrink-0`}
           />
           <span
             className="text-gray-300 font-medium"
@@ -169,16 +175,16 @@ function createMobileCenterNode(isVisible, skillsLength) {
   return {
     id: 'mobile-stack',
     type: 'default',
-    position: { x: 120, y: 20 + skillsLength * 65 + 20 },
+    position: { x: 135, y: 20 + skillsLength * 65 + 40 },
     data: {
       label: (
         <div
-          className={`flex items-center justify-center transition-all duration-700 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'}`}
+          className={`flex items-center justify-center transition-all duration-700 ${
+            isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'
+          }`}
           style={{ transitionDelay: `${skillsLength * 100}ms` }}
         >
-          <span className="text-sm text-transparent bg-clip-text bg-gradient-to-br  from-[#7DD3FC] via-[#5FBEEA] to-[#1E3A5F]font-bold px-2 py-1 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-lg border-2 border-white/30 whitespace-nowrap  shadow-[0_0_40px_rgba(125,211,252,0.35)]">
-            Skills
-          </span>
+          <Layers className="w-10 h-10 text-sky-300" />
         </div>
       ),
     },
@@ -186,6 +192,8 @@ function createMobileCenterNode(isVisible, skillsLength) {
       background: 'transparent',
       border: 'none',
       padding: 0,
+      width: 48,
+      height: 40,
     },
     sourcePosition: 'bottom',
     targetPosition: 'top',
@@ -194,7 +202,7 @@ function createMobileCenterNode(isVisible, skillsLength) {
 
 // Function untuk membuat nodes mobile tools (bottom)
 function createMobileToolsNodes(tools, isVisible, skillsLength) {
-  const centerNodeY = 20 + skillsLength * 65 + 20;
+  const centerNodeY = 20 + skillsLength * 65 + 40;
   return tools.map((tool, index) => ({
     id: `mobile-tool-${index}`,
     type: 'default',
@@ -317,12 +325,7 @@ export default function Skills({ showHeader = true, className = '' }) {
     { icon: FaGithub, name: 'GitHub', hoverColor: 'hover:text-[#24292E]' },
     { icon: SiGit, name: 'Git', hoverColor: 'hover:text-[#f05032]' },
     { icon: SiPostman, name: 'Postman', hoverColor: 'hover:text-[#ff6c37]' },
-    { icon: SiClaude, name: 'Claude', hoverColor: 'hover:text-[#d97757]' },
-
-    {
-      iconUrl: 'https://registry.npmmirror.com/@lobehub/icons-static-png/1.74.0/files/dark/openai.png',
-      name: 'ChatGPT',
-    },
+    // { icon: SiClaude, name: 'Claude', hoverColor: 'hover:text-[#d97757]' },
   ];
 
   const skillsNodes = createSkillsNodes(skills, isVisible);
@@ -348,7 +351,8 @@ export default function Skills({ showHeader = true, className = '' }) {
       {/* Header Section - Conditional */}
       {showHeader && (
         <div className="w-full mb-8 md:mb-12">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white text-center"></h2>
+          <h2 className="text-2xl md:text-3xl  font-bold text-main text-center">Tech Stack</h2>
+          <p className="text-secondary text-center text-sm md:text-base">Technologies I've worked with</p>
         </div>
       )}
 

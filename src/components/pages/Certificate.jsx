@@ -41,7 +41,7 @@ export default function Certificate() {
 
     setSlideDirection(nextIndex > currentIndex ? 'right' : 'left');
     setIsTransitioning(true);
-    setActiveSubCategory('HTML/CSS'); 
+    setActiveSubCategory('HTML/CSS');
 
     setTimeout(() => {
       setActiveCategory(category);
@@ -56,11 +56,11 @@ export default function Certificate() {
   const categoryColors = {
     'HTML/CSS': '#E34F26',
     Git: '#F05032',
-    'JavaScript Basic': '#F7DF1E',
-    'Vue.js': '#42B883',
-    React: '#61DAFB',
-    'Node.js': '#339933',
-    'Express.js': '#000000',
+    JavaScript: '#F7DF1E',
+    'Vue JS': '#42B883',
+    'React JS': '#61DAFB',
+    'Node JS': '#339933',
+    'Express JS': '#000000',
     MongoDB: '#47A248',
     Laravel: '#FF2D20',
   };
@@ -68,10 +68,10 @@ export default function Certificate() {
   const categoryIcons = {
     'HTML/CSS': FaHtml5,
     Git: FaGitAlt,
-    'JavaScript Basic': FaJs,
-    'Vue.js': FaVuejs,
-    React: FaReact,
-    'Node.js': FaNodeJs,
+    JavaScript: FaJs,
+    'Vue JS': FaVuejs,
+    'React JS': FaReact,
+    'Node JS': FaNodeJs,
     MongoDB: SiMongodb,
     Laravel: FaLaravel,
   };
@@ -246,42 +246,72 @@ export default function Certificate() {
               </div>
             </div>
             {/* Chip Filter - Sub Categories */}
-            {activeCategory === 'Programming' && (
-              <div className="flex justify-center items-center gap-3 mt-4 flex-wrap px-4">
-                {getSubCategories().map((subCat) => {
-                  const isActive = activeSubCategory === subCat;
-                  const chipColor = categoryColors[subCat] || '#7DD3FC';
-                  const IconComponent = categoryIcons[subCat];
+{activeCategory === 'Programming' && (
+  <div className="flex justify-center items-center gap-3 mt-4 flex-wrap px-4">
+    {getSubCategories().map((subCat) => {
+      const isActive = activeSubCategory === subCat;
+      const chipColor = categoryColors[subCat] || '#7DD3FC';
+      const IconComponent = categoryIcons[subCat];
 
-                  return (
-                    <button
-                      key={subCat}
-                      onClick={() => handleSubCategoryChange(subCat)}
-                      className="rounded-full transition-all duration-300 flex items-center justify-center"
-                      style={{
-                        width: '40px',
-                        height: '40px',
-                        background: isActive ? 'rgba(107, 124, 255, 0.2)' : 'rgba(15, 31, 58, 0.2)',
-                        border: isActive ? `2px solid ${chipColor}` : '2px solid rgba(107, 124, 255, 0.1)',
-                        backdropFilter: 'blur(8px)',
-                        WebkitBackdropFilter: 'blur(8px)',
-                        boxShadow: isActive ? `0 0 20px ${chipColor}50` : 'none',
-                      }}
-                      title={subCat}
-                    >
-                      {IconComponent && (
-                        <IconComponent
-                          style={{
-                            color: isActive ? chipColor : '#8A94B8',
-                            fontSize: '1.5rem',
-                          }}
-                        />
-                      )}
-                    </button>
-                  );
-                })}
-              </div>
+      return (
+        <div key={subCat} className="relative group">
+          <button
+            onClick={() => handleSubCategoryChange(subCat)}
+            className="rounded-full transition-all duration-300 flex items-center justify-center"
+            style={{
+              width: '40px',
+              height: '40px',
+              background: isActive ? 'rgba(107, 124, 255, 0.2)' : 'rgba(15, 31, 58, 0.2)',
+              border: isActive ? `2px solid ${chipColor}` : '2px solid rgba(107, 124, 255, 0.1)',
+              backdropFilter: 'blur(8px)',
+              WebkitBackdropFilter: 'blur(8px)',
+              boxShadow: isActive ? `0 0 20px ${chipColor}50` : 'none',
+            }}
+          >
+            {IconComponent && (
+              <IconComponent
+                style={{
+                  color: isActive ? chipColor : '#8A94B8',
+                  fontSize: '1.5rem',
+                }}
+              />
             )}
+          </button>
+          
+          {/* Tooltip - Sama seperti Project.jsx */}
+          <div
+            className="
+              absolute top-full left-1/2 -translate-x-1/2 mt-2
+              px-2 py-1
+              bg-secondary/15
+              text-secondary
+              text-xs
+              rounded-lg
+              whitespace-nowrap
+              z-10
+              backdrop-blur-sm
+              border border-secondary/30
+              shadow-[0_0_20px_rgba(125,211,252,0.35)]
+              opacity-0 group-hover:opacity-100
+              transition-opacity duration-200
+              pointer-events-none
+            "
+          >
+            {subCat}
+            {/* Arrow */}
+            <div
+              className="
+                absolute bottom-full left-1/2 -translate-x-1/2 -mb-1
+                border-4 border-transparent
+                border-b-secondary/30
+              "
+            />
+          </div>
+        </div>
+      );
+    })}
+  </div>
+)}
           </div>
 
           {getFilteredCertificates().length > 0 ? (
@@ -291,7 +321,7 @@ export default function Certificate() {
                 animation: isTransitioning
                   ? `slideOut${slideDirection === 'right' ? 'ToLeft' : 'ToRight'} 0.3s ease-out forwards`
                   : isInitialLoad
-                  ? 'none' // ← Tidak ada animasi saat pertama load
+                  ? 'none' // 
                   : `slideInFrom${slideDirection === 'right' ? 'Right' : 'Left'} 0.5s ease-out forwards`,
               }}
             >

@@ -30,133 +30,133 @@
                 "shadowColor": "#F05032"
             },
             {
-                "category": "JavaScript Basic",
+                "category": "JavaScript",
                 "caption": "BASIC JS",
                 "certificateUrl": "https://res.cloudinary.com/dzfqsajp3/image/upload/v1766564839/BASIC_JS_etzf6h.png",
                 "certificateImage": "https://res.cloudinary.com/dzfqsajp3/image/upload/w_600,f_auto,q_auto/v1766564839/BASIC_JS_etzf6h.png",
                 "shadowColor": "#F7DF1E"
             },
             {
-                "category": "JavaScript Basic",
+                "category": "JavaScript",
                 "caption": "JS OOP",
                 "certificateUrl": "https://res.cloudinary.com/dzfqsajp3/image/upload/v1766564889/OOP_JS_ktlgeo.png",
                 "certificateImage": "https://res.cloudinary.com/dzfqsajp3/image/upload/w_600,f_auto,q_auto/v1766564889/OOP_JS_ktlgeo.png",
                 "shadowColor": "#F7DF1E"
             },
             {
-                "category": "JavaScript Basic",
+                "category": "JavaScript",
                 "caption": "JS AJAX & WEB API",
                 "certificateUrl": "https://res.cloudinary.com/dzfqsajp3/image/upload/v1766564987/JS_AJAX_WEBAPI_bsxbzp.png",
                 "certificateImage": "https://res.cloudinary.com/dzfqsajp3/image/upload/w_600,f_auto,q_auto/v1766564987/JS_AJAX_WEBAPI_bsxbzp.png",
                 "shadowColor": "#F7DF1E"
             },
             {
-                "category": "JavaScript Basic",
+                "category": "JavaScript",
                 "caption": "ASYNC JS",
                 "certificateUrl": "https://res.cloudinary.com/dzfqsajp3/image/upload/v1766564990/ASYNC_JS_rigvbv.png",
                 "certificateImage": "https://res.cloudinary.com/dzfqsajp3/image/upload/w_600,f_auto,q_auto/v1766564990/ASYNC_JS_rigvbv.png",
                 "shadowColor": "#F7DF1E"
             },
             {
-                "category": "JavaScript Basic",
+                "category": "JavaScript",
                 "caption": "JS DOM",
                 "certificateUrl": "https://res.cloudinary.com/dzfqsajp3/image/upload/v1766564989/JS_DOM_fnfk6b.png",
                 "certificateImage": "https://res.cloudinary.com/dzfqsajp3/image/upload/w_600,f_auto,q_auto/v1766564989/JS_DOM_fnfk6b.png",
                 "shadowColor": "#F7DF1E"
             },
             {
-                "category": "Vue.js",
+                "category": "Vue JS",
                 "caption": "Vue 3 - Fundamentals",
                 "certificateUrl": "https://res.cloudinary.com/dzfqsajp3/image/upload/v1766749149/Screenshot_2025-12-26_183851_tceegf.png",
                 "certificateImage": "https://res.cloudinary.com/dzfqsajp3/image/upload/w_600,f_auto,q_auto/v1766749149/Screenshot_2025-12-26_183851_tceegf.png",
                 "shadowColor": "#42B883"
             },
             {
-                "category": "Vue.js",
+                "category": "Vue JS",
                 "caption": "Vue 3 - Animations",
                 "certificateUrl": "https://res.cloudinary.com/dzfqsajp3/image/upload/v1766811524/Belajar_Animasi_Vue_JS3_qyhc17.png",
                 "certificateImage": "https://res.cloudinary.com/dzfqsajp3/image/upload/w_600,f_auto,q_auto/v1766811524/Belajar_Animasi_Vue_JS3_qyhc17.png",
                 "shadowColor": "#42B883"
             },
             {
-                "category": "Vue.js",
+                "category": "Vue JS",
                 "caption": "Vue 3 - State Management",
                 "certificateUrl": "https://res.cloudinary.com/dzfqsajp3/image/upload/v1766811524/belajar_state_management_vue_3_bwrqjc.png",
                 "certificateImage": "https://res.cloudinary.com/dzfqsajp3/image/upload/w_600,f_auto,q_auto/v1766811524/belajar_state_management_vue_3_bwrqjc.png",
                 "shadowColor": "#42B883"
             },
             {
-                "category": "Vue.js",
+                "category": "Vue JS",
                 "caption": "Vue 3 - Fetch API",
                 "certificateUrl": "https://res.cloudinary.com/dzfqsajp3/image/upload/v1766811524/Belajar_fetch_api_dengan_vue_js3_lsobxk.png",
                 "certificateImage": "https://res.cloudinary.com/dzfqsajp3/image/upload/w_600,f_auto,q_auto/v1766811524/Belajar_fetch_api_dengan_vue_js3_lsobxk.png",
                 "shadowColor": "#42B883"
             },
             {
-                "category": "React",
+                "category": "React JS",
                 "caption": "React - Fundamentals",
                 "certificateUrl": "https://res.cloudinary.com/dzfqsajp3/image/upload/v1766811524/belajar_react_js_fundamental_b0epcp.png",
                 "certificateImage": "https://res.cloudinary.com/dzfqsajp3/image/upload/w_600,f_auto,q_auto/v1766811524/belajar_react_js_fundamental_b0epcp.png",
                 "shadowColor": "#61DAFB"
             },
             {
-                "category": "React",
+                "category": "React JS",
                 "caption": "React - State Management",
                 "certificateUrl": "https://res.cloudinary.com/dzfqsajp3/image/upload/v1766811524/belajar_react_js_state_management_cgngap.png",
                 "certificateImage": "https://res.cloudinary.com/dzfqsajp3/image/upload/w_600,f_auto,q_auto/v1766811524/belajar_react_js_state_management_cgngap.png",
                 "shadowColor": "#61DAFB"
             },
             {
-                "category": "Node.js",
-                "caption": "Node.js Basic & NPM",
+                "category": "Node JS",
+                "caption": "Node JS     ",
                 "certificateUrl": "https://res.cloudinary.com/dzfqsajp3/image/upload/v1766811523/belajar_dasar_node_js_dan_npm_alklnb.png",
                 "certificateImage": "https://res.cloudinary.com/dzfqsajp3/image/upload/w_600,f_auto,q_auto/v1766811523/belajar_dasar_node_js_dan_npm_alklnb.png",
                 "shadowColor": "#339933"
             },
             {
-                "category": "Node.js",
+                "category": "Node JS",
                 "caption": "Express JS - Basic ",
                 "certificateUrl": "https://res.cloudinary.com/dzfqsajp3/image/upload/v1766813700/belajar_dasar_express_js_bozj1v.png",
                 "certificateImage": "https://res.cloudinary.com/dzfqsajp3/image/upload/w_600,f_auto,q_auto/v1766813700/belajar_dasar_express_js_bozj1v.png",
                 "shadowColor": "#353535"
             },
             {
-                "category": "Node.js",
+                "category": "Node JS",
                 "caption": "Express JS - Middleware Implementation",
                 "certificateUrl": "https://res.cloudinary.com/dzfqsajp3/image/upload/v1766814481/belajar_implementasi_middleware_di_express_js_ahhrzt.png",
                 "certificateImage": "https://res.cloudinary.com/dzfqsajp3/image/upload/w_600,f_auto,q_auto/v1766814481/belajar_implementasi_middleware_di_express_js_ahhrzt.png",
                 "shadowColor": "#353535"
             },
             {
-                "category": "Node.js",
+                "category": "Node JS",
                 "caption": "Express JS - Error Handling Implementation",
                 "certificateUrl": "https://res.cloudinary.com/dzfqsajp3/image/upload/v1766814480/belajar_implementasi_error_handle_di_expres_js_u5cwxg.png",
                 "certificateImage": "https://res.cloudinary.com/dzfqsajp3/image/upload/w_600,f_auto,q_auto/v1766814480/belajar_implementasi_error_handle_di_expres_js_u5cwxg.png",
                 "shadowColor": "#353535"
             },
             {
-                "category": "Node.js",
+                "category": "Node JS",
                 "caption": "Express JS - Management Hot Data Session",
                 "certificateUrl": "https://res.cloudinary.com/dzfqsajp3/image/upload/v1766814479/manajemen_hot_data_session_l12opo.png",
                 "certificateImage": "https://res.cloudinary.com/dzfqsajp3/image/upload/w_600,f_auto,q_auto/v1766814479/manajemen_hot_data_session_l12opo.png",
                 "shadowColor": "#353535"
             },
             {
-                "category": "Node.js",
+                "category": "Node JS",
                 "caption": "Express JS - Implementation of Database Relations with Mongoose",
                 "certificateUrl": "https://res.cloudinary.com/dzfqsajp3/image/upload/v1766814479/implementasi_relasi_db_express_mongoose_xzomil.png",
                 "certificateImage": "https://res.cloudinary.com/dzfqsajp3/image/upload/w_600,f_auto,q_auto/v1766814479/implementasi_relasi_db_express_mongoose_xzomil.png",
                 "shadowColor": "#353535"
             },
             {
-                "category": "Node.js",
+                "category": "Node JS",
                 "caption": "Express JS - Route and Cookies Management",
                 "certificateUrl": "https://res.cloudinary.com/dzfqsajp3/image/upload/v1766814478/manajemen_route_dan_cookies_leb9r0.png",
                 "certificateImage": "https://res.cloudinary.com/dzfqsajp3/image/upload/w_600,f_auto,q_auto/v1766814478/manajemen_route_dan_cookies_leb9r0.png",
                 "shadowColor": "#353535"
             },
             {
-                "category": "Node.js",
+                "category": "Node JS",
                 "caption": "Express JS - Authentication Concept",
                 "certificateUrl": "https://res.cloudinary.com/dzfqsajp3/image/upload/v1766814470/belajar_konsep_auth_lxives.png",
                 "certificateImage": "https://res.cloudinary.com/dzfqsajp3/image/upload/w_600,f_auto,q_auto/v1766814470/belajar_konsep_auth_lxives.png",
