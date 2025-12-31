@@ -74,7 +74,7 @@ function Navbar() {
           wrapperClassName="pointer-events-auto"
         >
           <a
-            href="/Prayogo_CV.pdf"
+            href="/Prayogo_Fullstack_CV.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block px-8 py-2.5 text-white border border-[#7DD3FC] rounded font-medium text-sm tracking-wider hover:bg-[#A7F3D0]/20 hover:border-[#7DD3FC] transition-all duration-300 cursor-pointer select-none"
