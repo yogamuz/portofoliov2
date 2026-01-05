@@ -91,7 +91,7 @@ function Navbar() {
           >
             <defs>
               {/* Gradient untuk efek cahaya dari atas ke bawah */}
-              <linearGradient id="lightSweep" x1="0%" y1="0%" x2="0%" y2="100%">
+              <linearGradient id="lightSweep" x1="0%" y1="100%" x2="0%" y2="0%">
                 <stop offset="0%" stopColor="rgba(125,211,252,0.2)">
                   <animate
                     attributeName="offset"
