@@ -302,28 +302,28 @@ export default function Skills({ showHeader = true, className = '' }) {
   }, []);
 
   const skills = [
-    { icon: FaVuejs, name: 'Vue.js', hoverColor: 'hover:text-[#42b883]' },
-    { icon: FaReact, name: 'React', hoverColor: 'hover:text-[#61dafb]' },
     { icon: FaNodeJs, name: 'Node.js', hoverColor: 'hover:text-[#68a063]' },
-    {
-      icon: SiTailwindcss,
-      name: 'Tailwind CSS',
-      mobileName: 'Tailwind\nCSS',
-      hoverColor: 'hover:text-[#06b6d4]',
-    },
     { icon: FaLaravel, name: 'Laravel', hoverColor: 'hover:text-[#ff2d20]' },
-    { icon: SiMongodb, name: 'MongoDB', hoverColor: 'hover:text-[#47a248]' },
     {
       icon: SiPostgresql,
       name: 'PostgreSQL',
       mobileName: 'PostgreSQL',
       hoverColor: 'hover:text-[#4479a1]',
     },
+    { icon: SiMongodb, name: 'MongoDB', hoverColor: 'hover:text-[#47a248]' },
+    { icon: FaVuejs, name: 'Vue.js', hoverColor: 'hover:text-[#42b883]' },
+    { icon: FaReact, name: 'React', hoverColor: 'hover:text-[#61dafb]' },
+    {
+      icon: SiTailwindcss,
+      name: 'Tailwind CSS',
+      mobileName: 'Tailwind\nCSS',
+      hoverColor: 'hover:text-[#06b6d4]',
+    },
   ];
 
   const tools = [
-    { icon: FaGithub, name: 'GitHub', hoverColor: 'hover:text-[#24292E]' },
     { icon: SiGit, name: 'Git', hoverColor: 'hover:text-[#f05032]' },
+    { icon: FaGithub, name: 'GitHub', hoverColor: 'hover:text-[#24292E]' },
     { icon: SiPostman, name: 'Postman', hoverColor: 'hover:text-[#ff6c37]' },
     // { icon: SiClaude, name: 'Claude', hoverColor: 'hover:text-[#d97757]' },
   ];

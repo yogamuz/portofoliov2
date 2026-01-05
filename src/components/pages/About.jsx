@@ -89,7 +89,7 @@ export default function About() {
   }, []);
 
   const description =
-    'I am a fifth-semester student in the Information Technology program at Universitas Bina Sarana Informatika. Currently, I am deepening my knowledge of web development on both the frontend and backend sides, with the goal of becoming a Full Stack Web Developer. Although I study both areas, I am more inclined toward backend development because I enjoy working with logic, data structures, and understanding how systems operate behind the scenes. I have a strong passion for learning and am committed to continuously improving my skills, especially in adapting to the fast-paced and ever-evolving world of technology.';
+    'I am a fifth-semester Information Technology student at Universitas Bina Sarana Informatika with a primary focus on backend engineering. I specialize in building application logic, designing APIs, and managing data, with a strong interest in how systems operate behind the scenes. I also work with frontend technologies as a supporting skill to validate and demonstrate backend functionality in real-world web applications, ensuring that the systems I build are properly tested and usable end-to-end. I am continuously improving my skills and adapting to new technologies in a fast-evolving development environment.';
   const words = description.split(' ');
 
   return (
@@ -111,8 +111,7 @@ export default function About() {
             {words.map((word, index) => {
               const wordProgress = index / words.length;
               const opacity = scrollProgress >= wordProgress ? 1 : 0.3;
-              const color =
-                scrollProgress >= wordProgress ? 'rgb(255, 255, 255)' : 'rgb(50, 50, 50)';
+              const color = scrollProgress >= wordProgress ? 'rgb(255, 255, 255)' : 'rgb(50, 50, 50)';
 
               return (
                 <span
@@ -134,17 +133,11 @@ export default function About() {
       {/* GitHub Calendar Section - CENTERED */}
       <div
         ref={calendarRef}
-        className={`max-w-5xl mx-auto w-full mb-16 transition-opacity duration-700 ${
-          isCalendarVisible ? 'opacity-100' : 'opacity-0'
-        }`}
+        className={`max-w-5xl mx-auto w-full mb-16 transition-opacity duration-700 ${isCalendarVisible ? 'opacity-100' : 'opacity-0'}`}
       >
         <div className="mb-6">
-          <h3 className="text-2xl md:text-3xl font-bold text-main text-center mb-2">
-            GitHub Contributions
-          </h3>
-          <p className="text-secondary text-center text-sm md:text-base">
-            My coding activity over the past year
-          </p>
+          <h3 className="text-2xl md:text-3xl font-bold text-main text-center mb-2">GitHub Contributions</h3>
+          <p className="text-secondary text-center text-sm md:text-base">My coding activity over the past year</p>
         </div>
 
         {/* Wrapper untuk center calendar */}

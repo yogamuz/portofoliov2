@@ -42,9 +42,9 @@ export default function Home() {
             avatarUrl="https://res.cloudinary.com/dzfqsajp3/image/upload/w_300,f_auto,q_auto/v1761733354/Screenshot_2025-10-29_172205-removebg-preview_m24hpm.png"
             iconUrl="https://res.cloudinary.com/dzfqsajp3/image/upload/w_200,f_auto,q_auto/v1766410570/ss-code_icgwak.png"
             name="Prayogo"
-            title="Fullstack Web Developer"
+            title="Backend Developer"
             status="Available"
-            contactText="Send me a message!"
+            contactText="Email me!"
             showUserInfo={true}
             enableTilt={true}
             enableMobileTilt={true}

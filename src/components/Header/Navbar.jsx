@@ -1,8 +1,20 @@
 // components/Header/Navbar.jsx
 import StaggeredMenu from '../StaggeredMenu';
-import Magnet from '../Magnet';
+import { useState, useEffect } from 'react';
 
 function Navbar() {
+  const [isGlowing, setIsGlowing] = useState(false);
+
+  // Glow effect setiap 4 detik
+  useEffect(() => {
+    const glowInterval = setInterval(() => {
+      setIsGlowing(true);
+      setTimeout(() => setIsGlowing(false), 1000);
+    }, 4000);
+
+    return () => clearInterval(glowInterval);
+  }, []);
+
   const handleMenuItemClick = (e, link) => {
     e.preventDefault();
 
@@ -64,26 +76,69 @@ function Navbar() {
 
   return (
     <nav className="w-full flex items-center justify-end px-8 md:px-16 lg:px-24 py-6 relative z-50">
-      {/* CV Button with Magnet Effect - Left Section */}
+      {/* HexLogo with P - Left Section */}
       <div className="fixed top-6 left-6 z-[100]">
-        <Magnet
-          padding={80}
-          magnetStrength={3}
-          activeTransition="transform 0.2s ease-out"
-          inactiveTransition="transform 0.4s ease-in-out"
-          wrapperClassName="pointer-events-auto"
+        <a
+          href="#home"
+          onClick={(e) => handleMenuItemClick(e, '#home')}
+          className="inline-block cursor-pointer"
+          aria-label="Navigate to home"
         >
-          <a
-            href="/Prayogo_Fullstack_CV.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block px-8 py-2.5 text-white border border-[#7DD3FC] rounded font-medium text-sm tracking-wider hover:bg-[#A7F3D0]/20 hover:border-[#7DD3FC] transition-all duration-300 cursor-pointer select-none"
-            aria-label="Download CV"
-            style={{ pointerEvents: 'auto' }}
+          <svg 
+            width="60" 
+            height="60" 
+            viewBox="0 0 100 100"
           >
-            CV
-          </a>
-        </Magnet>
+            <defs>
+              {/* Gradient untuk efek cahaya dari atas ke bawah */}
+              <linearGradient id="lightSweep" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="rgba(125,211,252,0.2)">
+                  <animate
+                    attributeName="offset"
+                    values="-0.5; 1.5"
+                    dur="3s"
+                    repeatCount="indefinite"
+                  />
+                </stop>
+                <stop offset="0%" stopColor="rgba(125,211,252,1)">
+                  <animate
+                    attributeName="offset"
+                    values="-0.3; 1.7"
+                    dur="3s"
+                    repeatCount="indefinite"
+                  />
+                </stop>
+                <stop offset="0%" stopColor="rgba(125,211,252,0.2)">
+                  <animate
+                    attributeName="offset"
+                    values="-0.1; 1.9"
+                    dur="3s"
+                    repeatCount="indefinite"
+                  />
+                </stop>
+              </linearGradient>
+            </defs>
+            
+            {/* Letter P dengan gradient cahaya */}
+            <text
+              x="50"
+              y="50"
+              dominantBaseline="middle"
+              textAnchor="middle"
+              fontSize="80"
+              fontWeight="bold"
+              fill="url(#lightSweep)"
+              style={{
+                filter: isGlowing 
+                  ? 'drop-shadow(0 0 15px rgba(125,211,252,0.8))' 
+                  : 'drop-shadow(0 0 5px rgba(125,211,252,0.4))',
+                transition: 'filter 1s ease-in-out',
+              }}
+            >
+              P
+            </text>
+          </svg>
+        </a>
       </div>
 
       {/* StaggeredMenu: standalone di pojok kanan atas */}
