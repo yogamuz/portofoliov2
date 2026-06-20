@@ -13,6 +13,7 @@
     "@gsap/react": "^2.1.2",
     "@tailwindcss/vite": "^4.1.16",
     "@xyflow/react": "^12.9.1",
+    "firebase": "^12.14.0",
     "lucide-react": "^0.548.0",
     "react": "^19.1.1",
     "react-github-calendar": "^4.5.11",

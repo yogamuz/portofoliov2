@@ -7,16 +7,16 @@ import Footer from '@/components/Footer/Footer';
 import UnderwaterBackground from '@/components/UnderwaterBackground';
 
 // Lazy load components
-const Home = lazy(() => import('@/components/pages/Index'));
-const About = lazy(() => import('@/components/pages/About'));
+const Home = lazy(() => import('@/pages/Index'));
+const About = lazy(() => import('@/pages/About'));
 const Skills = lazy(() => import('@/components/Skills'));
-const Project = lazy(() => import('@/components/pages/Project'));
-const Contact = lazy(() => import('@/components/pages/Contact'));
-const Certificate = lazy(() => import('./components/pages/Certificate'));
+const Project = lazy(() => import('@/pages/Project'));
+const Contact = lazy(() => import('@/pages/Contact'));
+const Certificate = lazy(() => import('./pages/Certificate'));
 
 // Preload Home component saat app pertama kali mount
 const preloadHome = () => {
-  const HomeComponent = import('@/components/pages/Index');
+  const HomeComponent = import('@/pages/Index');
 };
 
 export default function App() {

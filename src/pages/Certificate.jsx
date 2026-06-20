@@ -2,9 +2,9 @@
 import { useState, useEffect, useRef } from 'react';
 import { FaHtml5, FaCss3Alt, FaGitAlt, FaJs, FaVuejs, FaReact, FaNodeJs, FaLaravel, FaServer } from 'react-icons/fa';
 import { SiMongodb } from 'react-icons/si';
-import CertificateCard from '../Certificate/CertificateCard';
+import CertificateCard from '../components/Certificate/CertificateCard';
 import certificates from '@/components/certificates.json';
-import '../Certificate/Styles';
+import '../components/Certificate/Styles';
 
 export default function Certificate() {
   const [activeCategory, setActiveCategory] = useState('Programming');
