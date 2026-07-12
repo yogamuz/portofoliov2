@@ -4,7 +4,7 @@ import { getS, getColors, API_BASE } from './DesignSystem'
 import { useTabungan } from '../hooks/useTabungan';
 
 import { Header } from '../components/Header';
-import { Toast } from '../components/UI';
+import { Toast } from '../components/Ui';
 import { DashboardTab } from '../components/DashboardTab';
 import { TransaksiTab } from '../components/TransaksiTab';
 import { PengaturanTab } from '../components/PengaturanTab';
