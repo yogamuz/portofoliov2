@@ -1,5 +1,5 @@
-import { fmt, fmtDate } from '../pages/designSystem';
-import { AccentCard, Spinner } from './UI';
+import { fmt, fmtDate } from '../pages/DesignSystem';
+import { AccentCard, Spinner } from './Ui';
 
 export function PengaturanTab({
   targetInput, setTargetInput, savingTarget, handleSaveTarget,

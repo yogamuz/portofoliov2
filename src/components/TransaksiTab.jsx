@@ -1,5 +1,5 @@
-import { fmt, fmtDate } from '../pages/designSystem';
-import { Spinner, AccentCard, LoadingBlock } from './UI';
+import { fmt, fmtDate } from '../pages/DesignSystem';
+import { Spinner, AccentCard, LoadingBlock } from './Ui';
 
 export function TransaksiTab({
   transaksi,

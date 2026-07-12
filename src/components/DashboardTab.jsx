@@ -1,5 +1,5 @@
-import { fmt, fmtDate } from '../pages/designSystem';
-import { AccentCard, LoadingBlock, Spinner } from './UI';
+import { fmt, fmtDate } from '../pages/DesignSystem';
+import { AccentCard, LoadingBlock, Spinner } from './Ui';
 
 export function DashboardTab({
   summary,

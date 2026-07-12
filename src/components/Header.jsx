@@ -1,5 +1,5 @@
-import { API_BASE } from "../pages/designSystem";
-import { Spinner } from "./UI";
+import { API_BASE } from "../pages/DesignSystem";
+import { Spinner } from "./Ui";
 
 export function Header({ online, deviceInfo, loadingSum, time, S, colors }) {
   return (
