@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-import { getS, getColors, API_BASE } from './designSystem';
+import { getS, getColors, API_BASE } from './DesignSystem'
 import { useTabungan } from '../hooks/useTabungan';
 
 import { Header } from '../components/Header';

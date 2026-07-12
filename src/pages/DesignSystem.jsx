@@ -2,7 +2,7 @@
 //  DESIGN SYSTEM — Tabungan Digital
 //  Neobrutalism style tokens & helpers
 // ═══════════════════════════════════════
-
+/* eslint-disable react-refresh/only-export-components */
 export const colors = {
   bg: '#F5F0E8',
   black: '#0A0A0A',
