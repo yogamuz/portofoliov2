@@ -41,7 +41,7 @@ function createToolsNodes(tools, isVisible, skillsLength) {
   return tools.map((tool, index) => ({
     id: `tool-${index}`,
     type: 'default',
-    position: { x: 1250, y: ((skillsLength - tools.length) * 140) / 2 + index * 140 },
+    position: { x: 1250, y: 0 + index * 140 },
     data: {
       label: (
         <div
@@ -92,7 +92,7 @@ function createCenterNode(isVisible, skillsLength) {
           }`}
           style={{ transitionDelay: `${skillsLength * 150}ms` }}
         >
-          <Layers className="w-32 h-32 text-sky-300 drop-shadow-[0_0_12px_rgba(125,211,252,0.6)]" />
+          <Layers className="w-30 h-30 text-sky-300" />
         </div>
       ),
     },
@@ -100,8 +100,8 @@ function createCenterNode(isVisible, skillsLength) {
       background: 'transparent',
       border: 'none',
       padding: 0,
-      width: 140,
-      height: 150,
+      width: 120,
+      height: 135,
     },
     sourcePosition: 'right',
     targetPosition: 'left',
@@ -304,13 +304,7 @@ export default function Skills({ showHeader = true, className = '' }) {
   const skills = [
     { icon: FaNodeJs, name: 'Node.js', hoverColor: 'hover:text-[#68a063]' },
     { icon: FaLaravel, name: 'Laravel', hoverColor: 'hover:text-[#ff2d20]' },
-    {
-      icon: SiPostgresql,
-      name: 'PostgreSQL',
-      mobileName: 'PostgreSQL',
-      hoverColor: 'hover:text-[#4479a1]',
-    },
-    { icon: SiMongodb, name: 'MongoDB', hoverColor: 'hover:text-[#47a248]' },
+
     { icon: FaVuejs, name: 'Vue.js', hoverColor: 'hover:text-[#42b883]' },
     { icon: FaReact, name: 'React', hoverColor: 'hover:text-[#61dafb]' },
     {
@@ -325,6 +319,14 @@ export default function Skills({ showHeader = true, className = '' }) {
     { icon: SiGit, name: 'Git', hoverColor: 'hover:text-[#f05032]' },
     { icon: FaGithub, name: 'GitHub', hoverColor: 'hover:text-[#24292E]' },
     { icon: SiPostman, name: 'Postman', hoverColor: 'hover:text-[#ff6c37]' },
+    { icon: SiMongodb, name: 'MongoDB', hoverColor: 'hover:text-[#47a248]' },
+        {
+      icon: SiPostgresql,
+      name: 'PostgreSQL',
+      mobileName: 'PostgreSQL',
+      hoverColor: 'hover:text-[#4479a1]',
+    },
+
     // { icon: SiClaude, name: 'Claude', hoverColor: 'hover:text-[#d97757]' },
   ];
 
