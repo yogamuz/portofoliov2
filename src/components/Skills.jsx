@@ -41,7 +41,7 @@ function createToolsNodes(tools, isVisible, skillsLength) {
   return tools.map((tool, index) => ({
     id: `tool-${index}`,
     type: 'default',
-    position: { x: 1250, y: 0 + index * 140 },
+    position: { x: 1250, y: ((skillsLength - tools.length) * 140) / 2 + index * 140 },
     data: {
       label: (
         <div
@@ -92,7 +92,7 @@ function createCenterNode(isVisible, skillsLength) {
           }`}
           style={{ transitionDelay: `${skillsLength * 150}ms` }}
         >
-          <Layers className="w-30 h-30 text-sky-300" />
+          <Layers className="w-32 h-32 text-sky-300 drop-shadow-[0_0_12px_rgba(125,211,252,0.6)]" />
         </div>
       ),
     },
@@ -100,8 +100,8 @@ function createCenterNode(isVisible, skillsLength) {
       background: 'transparent',
       border: 'none',
       padding: 0,
-      width: 120,
-      height: 135,
+      width: 140,
+      height: 150,
     },
     sourcePosition: 'right',
     targetPosition: 'left',
